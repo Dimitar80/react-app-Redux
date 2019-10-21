@@ -44,7 +44,7 @@ const Routes = () => {
                         />
                     }
                 />
-               <Route
+                <Route
                     exact
                     path='/weather'
                     render={ () =>
@@ -52,9 +52,10 @@ const Routes = () => {
                             component={WeatherList}
                             methodType='GET'
                             url='https://api.openweathermap.org/data/2.5/weather?id=2643743&APPID=9bde6170317af476e9c47e6d11cc9d26'
-                        />
+                        />                                                                 
                     }
                 />
+               
             </Switch>
         </Router>
     )

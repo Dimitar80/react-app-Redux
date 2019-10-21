@@ -5,9 +5,9 @@ const WeatherList = (props) => {
     return props.data.map((element) => {
         return <Weather
             key={element.id}
-            id={element.id}
-            name={element.name}
-            country={element.country}
+            lon={element.coord.lon}
+            lat={element.coord.lat}
+            temp={element.main.temp}
         />
     })
 }

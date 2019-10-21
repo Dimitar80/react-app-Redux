@@ -20,8 +20,8 @@ import './shared.css'
 //   }
 
 
-//   var green = '#39D1B4';
-//   var yellow = '#FFD712';
+  var green = '#39D1B4';
+  var yellow = '#FFD712';
 
 class User extends React.Component {
     constructor (/*props*/) {
@@ -30,7 +30,7 @@ class User extends React.Component {
         this.state = {
             show: false,
             buttonText: "Expand",
-            color : green
+            color : green 
             // green : '#39D1B4',
             // yellow : '#FFD712'
             // isLoggedIn: false
@@ -55,11 +55,11 @@ class User extends React.Component {
         this.setState({color: newColor});
     
     }
-    // myPress = () => {
-    //     this.setState({
-    //       color: yellow
-    //     });
-    //   };
+    myPress = () => {
+        this.setState({
+          color: yellow
+        });
+      };
     // handleClick = () => {
     //     console.log("Button clicked...")
     //     let buttonText = this.state.buttonText == "Expand" ? "Cancel" : "Expand"
@@ -87,7 +87,7 @@ class User extends React.Component {
         // }
         return (
             <React.Fragment>
-                
+                    
                     <tr>
                     <td>{this.props.id}</td>
                     <td>{this.props.name}</td>
