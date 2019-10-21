@@ -3,6 +3,7 @@ import User from './User'
 
 const UsersList = (props) => {
     return props.data.map((element) => {
+        console.log(element)
         return <User
             key={element.id}
             id={element.id}
@@ -14,5 +15,6 @@ const UsersList = (props) => {
         />
     })
 }
+
 
 export default UsersList

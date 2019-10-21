@@ -1,6 +1,6 @@
 import React from 'react'
 import Error from './Error'
-
+// import Weather from './Weather'
 import axios from 'axios'
 import './shared.css'
 
@@ -20,6 +20,7 @@ class Wrapper extends React.Component {
             method: this.props.methodType,
             url: this.props.url
         }).then((response) => {
+            console.log(response.data)
             this.setState({ data: response.data, loading: false })
         })
         .catch((error) => {

@@ -33,8 +33,8 @@ class Weather extends React.Component {
         return (
             <React.Fragment>
                 <tr>
-                    <td>{this.props.lon}</td>
-                    <td>{this.props.lat}</td>
+                    <td>{this.props.press}</td>
+                    <td>{this.props.hum}</td>
                     <td>{this.props.temp}</td>
                     <td>
                         <button id='toggle' 
