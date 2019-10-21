@@ -20,8 +20,8 @@ import './shared.css'
 //   }
 
 
-  var green = '#39D1B4';
-  var yellow = '#FFD712';
+//   var green = '#39D1B4';
+//   var yellow = '#FFD712';
 
 class User extends React.Component {
     constructor (/*props*/) {
