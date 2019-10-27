@@ -2,6 +2,7 @@ import React from 'react'
 // import Extract from 'react';
 import './style.css'
 import './shared.css'
+import Extract from './Extract'
 
 // function ExpandButton(props) {
 //     return (
@@ -30,13 +31,16 @@ class User extends React.Component {
         this.state = {
             show: false,
             buttonText: "Expand",
-            color : green 
+            color : green,
             // green : '#39D1B4',
             // yellow : '#FFD712'
             // isLoggedIn: false
 
         }
-    }
+    }   
+
+        // remove = () =>
+
 
        showOrHide = (event) => {
         console.log(event.target.id)
@@ -46,20 +50,19 @@ class User extends React.Component {
         (ASINHRONA E, PAZETE! noviot state moze da go procitate
             samo vo render i so callback) */
         this.setState({ show: !this.state.show });
-
         console.log("Button clicked...")
         let buttonText = this.state.buttonText === "Expand" ? "Cancel" : "Expand"
         this.setState({buttonText: buttonText});
         
-        let newColor = this.state.color === green ? yellow : green
-        this.setState({color: newColor});
-    
+        // let newColor = this.state.color === green ? yellow : green
+        // this.setState({color: newColor});
     }
-    myPress = () => {
-        this.setState({
-          color: yellow
-        });
-      };
+
+    // myPress = () => {
+    //     this.setState({
+    //       color: yellow
+    //     });
+    //   };
     // handleClick = () => {
     //     console.log("Button clicked...")
     //     let buttonText = this.state.buttonText == "Expand" ? "Cancel" : "Expand"
@@ -93,19 +96,29 @@ class User extends React.Component {
                     <td>{this.props.name}</td>
                     <td>{this.props.username}</td>
                     <td>{this.props.email}</td>
-                    <td>{this.props.address}</td>
+                    <td>{this.props.street}</td>
                     <td>{this.props.suite}</td>
                     <td>
                         <button id='toggle' /*onClick={this.handleClick}*/ 
-                        onClick={this.showOrHide} style={{backgroundColor:this.state.newColor}}>
+                        onClick={this.showOrHide} /*style={{backgroundColor:this.state.newColor}}*/>
                         {this.state.buttonText}
                         {/* {this.state.newColor}  */}
                         </button>
                     </td>
                     </tr>
-                    {/* <Extract /> */}
+                    {this.state.show && <Extract 
+                    key={this.props.id}
+                    // expand={this.expand}
+                    id={this.props.id} 
+                    name={this.props.name}
+                    username={this.props.username}
+                    email={this.props.email}
+                    street={this.props.street}
+                    suite={this.props.suite}
+                    ex={this.showOrHide}/>}
+
                     {/* <div id='extract'> */}
-                    {this.state.show && <div id='lab'>ID:
+                    {/* {this.state.show && <div id='lab'>ID:
                     <input id='cen' type='text' defaultValue={this.props.id }/>
                     </div>}
                     {this.state.show && <div id='lab'>NAME:
@@ -122,7 +135,7 @@ class User extends React.Component {
                     </div>}
                     {this.state.show && <div id='lab'>SUITE:
                     <input id='cen' type='text' defaultValue={this.props.suite }/>
-                    </div>}
+                    </div>} */}
                     {/* </div> */}
             </React.Fragment>
         )

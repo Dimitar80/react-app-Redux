@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import logger from 'redux-logger'
 import { userReducer } from './reducers/userReducer.js'
+// import { weatherReducer } from './reducers/weatherReducer.js'
 
 const singleReducer = combineReducers({
     userReducer,

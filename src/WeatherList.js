@@ -1,20 +1,18 @@
-import React from 'react'
-import Weather from './Weather'
+// import React from 'react'
+// import Weather from './Weather'
 
-const WeatherList = (props) => {
-    return props.data.map((element) => {
-        console.log(element)
-        return <Weather
-            key={element.id}
-            press={element.main.pressure}
-            hum={element.main.humidity}
-            temp={element.main.temp}
-            
-        />
+// const WeatherList = (props) => {
+//     return props.data.Object.keys((el) =>{
+       
+//         return <Weather
+//             // key={id}
+//             press={el.main.pressure}
+//             hum={el.main.humidity}
+//             temp={el.main.temp}
+//         />
+//     })
         
-    })
-    
-}
-// console.log(press)
+// }
+// // console.log(press)
 
-export default WeatherList
+// export default WeatherList

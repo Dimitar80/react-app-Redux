@@ -10,11 +10,13 @@ const UsersList = (props) => {
             name={element.name}
             username={element.username}
             email={element.email}
-            address={element.address.street}
+            street={element.address.street}
             suite={element.address.suite}
+            ex={props.showOrHide}
         />
     })
 }
 
 
 export default UsersList
+

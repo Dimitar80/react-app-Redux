@@ -2,6 +2,8 @@ html, body {
     width: 100%;
     height: 100%;
     margin: 0px;
+    /* display: flex;
+    justify-content: center; */
 }
 
 h1 {
@@ -11,16 +13,28 @@ h1 {
 }
 
 #l  {
+    /* font-family: 'Roboto', sans-serif; */
+    /* display: flex;
+    justify-content: center; */
+    font-size: 25px;
+    font-weight: 900;
     text-decoration: none;
-    color: blue;
+    color: white;
 }
 
 #menu {
-    font-size: 18px;
-    font-weight: 700;
+    width: 100%;
     display: flex;
-    background: rgb(128, 128, 128);
     justify-content: center;
+    /* justify-items: center; */
+    /* align-items: center; */
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+    /* font-size: 25px; */
+    /* font-weight: 700; */
+    background: rgb(128, 128, 128);
+    /* color: red; */
+    
 }
 
 ul {
@@ -32,16 +46,39 @@ li {
     margin-right: 80px;
 }
 
+#wapp-container{
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+
+}
 
 .table{
+    /* display: flex; */
+    /* justify-content: center; */
     table-layout: fixed;
     width: 100%;
     border: 1px black solid;
     border-collapse:separate;
     border-spacing: 5px 5px;
 }
+/* .tablewf{
+    display: flex;
+    justify-content: center;
+    table-layout: fixed;
+    width: 0%;
+    border: 1px black solid;
+    border-collapse:separate;
+    border-spacing: 5px 5px;
+} */
 
 .table thead {
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
     font-size: 16px;
     color: black;
     background-color: rgba(128, 128, 128, 0.582);
@@ -85,13 +122,79 @@ li {
 .table tbody tr td {
     padding: 10px;
     text-align: center;
+    height: 30px;
 }
 
 #toggle{
     color: white;
+    font-size: 16px;
+    font-weight: 700;
     background-color: orange;
-    width: 90%;
+    width: 50%;
+    height: 30px;
 }
+#refresh{
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: orange;
+    width: 15%;
+    height: 30px;
+
+}
+#cico{
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgba(255, 166, 0, 0.658);
+    width: 25%;
+    height: 30px;
+}
+
+#src-btn{
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border: 1px solid orange;
+    background-color:rgba(128, 128, 128, 0.301);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+#srcleft{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+    justify-content: center;
+    align-items: center;
+}
+#srcright{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+/* #srcbar{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+} */
 
 #toggleMe {
     color: white;
@@ -108,9 +211,29 @@ li {
     text-align: center;
 }
 
+
 /* #extract{
     display: flex;
     justify-content: center;
     text-align: center;
 } */
+
+#wftitle{
+    font-family: 'Roboto', sans-serif;
+    color: green;
+    font-weight: 900;
+    background-color: rgba(128, 128, 128, 0.562);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* font-size: 30px; */
+}
+
+#wfcwf{
+    font-family: 'Roboto', sans-serif;
+    color: orange;
+    font-weight: 700;
+    /* background-color: grey; */
+    text-align: center;
+}
 

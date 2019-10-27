@@ -3,12 +3,15 @@ import Error from './Error'
 // import Weather from './Weather'
 import axios from 'axios'
 import './shared.css'
+// import User from './User'
+// import UserList from './UsersList'
+
 
 class Wrapper extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            data: [],
+            udata: [],
             error: null,
             loading: false
         }
@@ -21,7 +24,7 @@ class Wrapper extends React.Component {
             url: this.props.url
         }).then((response) => {
             console.log(response.data)
-            this.setState({ data: response.data, loading: false })
+            this.setState({ udata: response.data, loading: false })
         })
         .catch((error) => {
             this.setState({ error: <Error />, loading: false })
@@ -31,6 +34,9 @@ class Wrapper extends React.Component {
     render () {
         return (
             <React.Fragment>
+                <div>
+                    <h1>Users</h1>
+                </div>
                 <table className="table">
                     <thead className="table-head">
                         <tr>
@@ -38,15 +44,16 @@ class Wrapper extends React.Component {
                             <th id='s'>Name</th>
                             <th id='t'>User Name</th>
                             <th id='fo'>E-mail</th>
-                            <th id='fi'>Adress</th>
+                            <th id='fi'>Street address</th>
                             <th id='si'>Suite</th>
                             <th id='se'>Expand</th>
                         </tr>
                     </thead>
                     <tbody className="table-body">
-                    <this.props.component data={this.state.data} />
+                    <this.props.component data={this.state.udata} />
                    {this.state.error}
-                   {this.state.loading && <tr><td>LOADING...</td></tr>}
+                   {this.state.loading && <h1 
+                   style={{color: "red", fontSize: "20px", textAlign: 'center'}}>LOADING...</h1>}
                     </tbody>
                 </table>
                 
