@@ -11,7 +11,7 @@ import Login from './Login'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import './shared.css'
 import WForecast from './WForecast'
-// import Forecast from './Forecast.js'
+
 
 
 const app = document.getElementById('app')

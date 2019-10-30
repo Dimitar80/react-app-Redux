@@ -19,6 +19,7 @@ class Wrapper extends React.Component {
 
     componentDidMount () {
         this.setState({ loading: true })
+        // console.log(loading)
         axios({
             method: this.props.methodType,
             url: this.props.url

@@ -137,16 +137,17 @@ li {
     color: white;
     font-size: 16px;
     font-weight: 700;
+    border: 1px solid orange;
     background-color: orange;
     width: 15%;
     height: 30px;
-
+    cursor: pointer;
 }
-#cico{
+.cico{
     color: black;
     font-size: 16px;
     font-weight: 600;
-    background-color: rgba(255, 166, 0, 0.658);
+    background-color: rgba(255, 166, 0, 0.459);
     width: 25%;
     height: 30px;
 }
@@ -160,7 +161,7 @@ li {
     box-sizing: border-box;
     padding: 5px 10px;
     border: 1px solid orange;
-    background-color:rgba(128, 128, 128, 0.301);
+    background-color: orange;
     border-radius: 5px;
     cursor: pointer;
     margin-left: 25px;
@@ -177,7 +178,7 @@ li {
     align-items: center;
 }
 #srcright{
-    height: 50px;
+    height: 30px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -229,11 +230,34 @@ li {
     /* font-size: 30px; */
 }
 
-#wfcwf{
+.wfcwf{
     font-family: 'Roboto', sans-serif;
     color: orange;
     font-weight: 700;
     /* background-color: grey; */
     text-align: center;
 }
+
+#btn-ext{
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    border: 1px solid orange;
+    background-color: orange;
+    width: 15%;
+    height: 30px;
+    cursor: pointer;
+}
+
+#extfield{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+
 
