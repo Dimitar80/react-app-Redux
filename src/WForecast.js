@@ -32,7 +32,8 @@ class WForecast extends React.Component {
             // loading: false
         }
     }
-
+     
+    //Open/CLose btn//
     ExtFore = (event) => {
         console.log(event.target.id)
        this.setState({ show: !this.state.show });
@@ -40,16 +41,42 @@ class WForecast extends React.Component {
         console.log("Button clicked...")
         let butText = this.state.buttonTextTwo === "Open" ? "Close" : "Open"
         this.setState({buttonTextTwo: butText});
+
+        saveInput = (event) => {
+            this.setState({city: event.target.value})
+        }
+    
+        // capFirstLetter(string) {
+        //     return string[0].toUpperCase() + string.slice(1);
+        // }
+        
+       // Start - On SEARCH BUTTON //
+        showNewCity = () => {
+            let newCity = this.capFirstLetter(this.state.city)
+            document.getElementById('new-city').value = null
+            axios.get('https://api.openweathermap.org/data/2.5/weather?q='+ newCity +'&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040')
+            .then((response) => {
+                console.log(response.data)
+                this.setState({wdata: response.data })
+            })
+            .catch((error) => {
+                console.log(error)
+                this.setState({
+                    wdata: <Error />
+                })
+            })
+        }
+
     }
 
-    refresh = (event) => {
-        console.log(event.target.id)
-       this.setState({ show: !this.state.show });
+    // refresh = (event) => {
+    //     console.log(event.target.id)
+    //    this.setState({ show: !this.state.show });
 
-        console.log("Button clicked...")
-        let buttonText = this.state.buttonText === "Refresh" ? "Refreshed" : "Refresh"
-        this.setState({buttonText: buttonText});
-    }
+    //     console.log("Button clicked...")
+    //     let buttonText = this.state.buttonText === "Refresh" ? "Refreshed" : "Refresh"
+    //     this.setState({buttonText: buttonText});
+    // }
 
 
     saveInput = (event) => {
@@ -77,6 +104,8 @@ class WForecast extends React.Component {
     }
     // End - On SEARCH BUTTON //
     
+
+    // Default 'SKOPJE' City//
     componentDidMount () {
         // this.setState({ loading: true })
         axios.get(`https://api.openweathermap.org/data/2.5/weather?id=785842&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040`)
@@ -113,6 +142,7 @@ class WForecast extends React.Component {
                <div>
                    <h1 id='wftitle'>Weather Forecast </h1> 
                    <div id='srcleft'>
+                       {/* Automatic addin and finishing when typping */}
                         <input 
                         className='cico' 
                         id='new-city'
@@ -120,7 +150,7 @@ class WForecast extends React.Component {
                         placeholder='Enter City' 
                         style={{textAlign:'center'}}
                         />
-                        <button id='src-btn' onClick={this.showNewCity}>Search</button>
+                        <button id='src-btn' onClick={this.showNewCity}>Get Weather</button>
                    </div>
                    <div id='srcright'>
                         <h2 className='wfcwf'>Current Weather Forecast in: &nbsp; 
@@ -185,7 +215,7 @@ class WForecast extends React.Component {
                 {this.state.wdata ? this.state.wdata.name + ', ' + this.state.wdata.sys.country : null}
                 </span> 
                  </h2> &nbsp;
-                <button  id='btn-ext' onClick={this.ExtFore}>{this.state.buttonTextTwo}</button>
+                <button  id='btn-ext' onClick={this.ExtFore}> {this.state.buttonTextTwo} </button>
                 </div>
                 {this.state.show &&  <ExtForecast 
                 /*r={this.state.wdata.name}*/ /> }
