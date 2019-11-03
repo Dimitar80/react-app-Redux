@@ -3,6 +3,8 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import store from './redux/store.js'
 import Menu from './Menu'
+import TestMenu from './TestMenu'
+import MenuChLi from './MenuChLi'
 import Wrapper from './Wrapper'
 import UsersList from './UsersList'
 // import WeatherList from './WeatherList'
@@ -11,6 +13,7 @@ import Login from './Login'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import './shared.css'
 import WForecast from './WForecast'
+import WForecastTest from './WForecastTest'
 
 
 
@@ -29,7 +32,7 @@ const Contact = () => {
 const Routes = () => {
     return (
         <Router>
-            <Menu />
+            <MenuChLi />
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/about' component={About} />

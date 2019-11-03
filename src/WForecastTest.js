@@ -1,9 +1,13 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
+import CurrForecast from './CurrForecast'
+import ExtForecast from './ExtForecast'
+import Clock from './Clock'
 import './shared.css'
 import './style.css'
 // import CurrForecast from './CurrForecast'
-import Error from './Error'
+import CurrForecastTest from './CurrForecastTest'
+// import Error from './Error'
 
 class WForecastTest extends React.Component {
     constructor (props) {
@@ -11,113 +15,95 @@ class WForecastTest extends React.Component {
         /*Initial State*/ 
         this.state = {
             show: false,
-            wdata: null,
-         // wdata: [],
-            array: [],
-            show: false,
-            error: null
+            wdata:null,
+         // wdata: [],{},
+            // array: [],
+            city: '',
+            btnRef: "Refresh",
+            btnOpenClose: "Open",
+            error: null,
+            orange: true,
         }
     }
 
-    showOrHide = (event) => {
+    //Open/CLose btn//
+    ExtFore = (event) => {
         console.log(event.target.id)
-        /* menuvanje na state so setState() metoda
-        otkako state-ot kje se smeni,
-        komponentata si go vika svojot render metod odnovo
-        (ASINHRONA E, PAZETE! noviot state moze da go procitate
-            samo vo render i so callback) */
-        this.setState({ show: !this.state.show });
-
+       this.setState({ show: !this.state.show });
         console.log("Button clicked...")
-        let buttonText = this.state.buttonText === "Refresh" ? "Refreshed" : "Refresh"
-        this.setState({buttonText: buttonText});
-        
-        // let newColor = this.state.color === green ? yellow : green
-        // this.setState({color: newColor});
-    
-    }
 
-    // expand = (event) => {
-    //     this.setState({ show: !this.state.show })
-    //     console.log(event.target)
-    //     console.log(this.state.array[event.target.id -1] )
-    // }
+        this.setState({orange: !this.state.orange})
 
-    componentDidMount () {
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?id=785842&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040`)
-            .then((response) => {
-                console.log(response.data)
-                console.log(response.data.name)
-                // const new_data = JSON.stringify(response.data) 
-                // const new_data = response.data
-                // const new_data = response.data.JSON.parse()
-                // this.setState({ users: Object.values(JSON.parse(res.data))});
-                const new_data = response.data
-                console.log(new_data)
-                console.log(new_data.sys.country)
-                // const new_data = response.data.map((el) => {
-                //     console.log(new_data)
-                //     return <CurrForecast 
-                //                   key={el.id}  
-                //              cityName={el.name}
-                //           countryName={el.sys.country}
-                //             />
-                // })
-                
-                // console.log(this.cityName)
-                // console.log(new_data)
-                // array.push[new_data]
-                // return <Forecast  
-                //          minTemp={new_data.temp_min}
-                // />
-                // new_data.map((item) => {
-                    
-                //     return <CurrForecast 
-                                
-                //                 expand={this.expand}/>
-                // })
-    
-            this.setState({wdata: new_data, array: response.data})
-            console.log(this.state.wdata.name)
-            //  console.log(response.data)
-            //  console.log(new_data)
-            //  console.log(this.state.array)
-            })
-            .catch((error) => { // error zaso ne sveti ???//
-                this.setState({wdata: <Error />})
-            })
-    }
-    
+        let butText = this.state.btnOpenClose === "Open" ? "Close" : "Open"
+        this.setState({btnOpenClose: butText});
+   }
+
+
+   saveInput = (event) => {
+    this.setState({city: event.target.value})
+}
+
+capFirstLetter(string) {
+    return string[0].toUpperCase() + string.slice(1);
+}
+// Start - On SEARCH BUTTON //
+showNewCity = () => {
+    let newCity = this.capFirstLetter(this.state.city)
+    document.getElementById('new-city').value = null
+    axios.get('https://api.openweathermap.org/data/2.5/weather?q='+ newCity +'&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040')
+    .then((response) => {
+        console.log(response.data)
+        this.setState({wdata: response.data })
+    })
+    .catch((error) => {
+        console.log(error)
+        this.setState({
+            wdata: <Error />
+        })
+    })
+}
+// End - On SEARCH BUTTON //
+
 
     render () {
 
-    
+        let btn_class = this.state.orange ? "orangeButton" : "whiteButton";
         return (
             <React.Fragment>
-                <div>
-                {/* { JSON.stringify(this.state.wdata)} */}
-                {this.state.wdata}
-               </div>
+                {/* COULD BE HEADER COMPONENT */}
                <div>
-                   <h1 id='wftitle'>Weather Forecast</h1>
+                   <h1 id='wftitle'>Weather Forecast </h1> 
                    <div id='srcleft'>
-                        <input id='cico' placeholder='Enter City' style={{textAlign:'center'}}/>
-                        <button id='src-btn' onClick={this.showNewTown}>Search</button>
-                        </div>
-                   
-                        <div id='srcright'>
-                        <h2 id='wfcwf'>Current Weather Forecast</h2>
-                        <button id='refresh' 
-                        onClick={this.showOrHide} /*style={{backgroundColor:this.state.newColor}}*/>
-                        {/* {this.state.buttonText} */}Referesh 
+                       {/* Automatic addin and finishing when typping */}
+                        <input 
+                        id='new-city'
+                        className='cico' 
+                        onChange={this.saveInput}
+                        placeholder='Enter City' 
+                        style={{textAlign:'center'}}
+                        />
+                        <button id='src-btn' onClick={this.showNewCity}>Get Weather</button>
+                   </div>
+                   <div id='srcright'>
+                        <h2 className='wfcwf'>Current Weather Forecast in: &nbsp; 
+                <span style={{color: 'black'}}>
+                {this.state.wdata ? this.state.wdata.name + ', ' + this.state.wdata.sys.country : null}
+                </span>
+                 </h2>
+                 {/* <p>{datetime}</p>
+                 <p>{time}</p> */}
+                 
+                        <button id='refresh' onClick={this.refresh} >
+                        Referesh 
                         </button>
-                        </div>
+                    </div>
+                    {/* CLOCK CLASS COMPONENT */}
+                    <div style={{textAlign: 'center'}}><Clock /></div>
                </div>
                <div id='wapp-container'>
                 <table className="table">
                     <thead className="table-head">
                         <tr>
-                            <th>City, Country</th>
                             <th>Temperature</th>
                             <th>Wind</th>
                             <th>Cloudiness</th>
@@ -125,25 +111,26 @@ class WForecastTest extends React.Component {
                             <th>Humidity</th>
                             <th>Sunrise</th>
                             <th>Sunset</th>
-                            <th>Geo Coords</th>
                         </tr>
                     </thead>
                     <tbody className="products-table-body">
-                         {/* <CurrForecast 
-                                key={this.props.id}
-                           cityName={this.props.cityName}
-                        countryName={this.props.countryName} /> */}
-
-                    { 
-                        !this.state.wdata 
-                        ?<tr> 
-                            <td>LOADING ...</td>
-                        </tr>
-                        : this.state.wdata
-                    }
-                    </tbody>
+                     <CurrForecastTest />
+                      
+                </tbody>
                 </table>
                 </div>
+                <div id='extfield'>
+                <h2 className='wfcwf'>Show Extended Weather Forecast in: &nbsp; 
+                <span style={{color: 'black'}}>
+                {this.state.wdata ? this.state.wdata.name + ', ' + this.state.wdata.sys.country : null}
+                </span> 
+                 </h2> &nbsp; 
+                <button  /*id='btn-ext'*/  className={btn_class} onClick={this.ExtFore}> 
+                {this.state.btnOpenClose} 
+                </button>
+                </div>
+                {this.state.show &&  <ExtForecast 
+                /*r={this.state.wdata.name}*/ /> }
             </React.Fragment>
         )
     }

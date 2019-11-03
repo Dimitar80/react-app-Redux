@@ -18,15 +18,15 @@ class CurrForecast extends React.Component {
             <React.Fragment>
                <tr>
                     {/* <td>{this.props.city}, {this.props.country} </td> */}
-                    <td>{this.props.temperature} </td>
-                    <td>{this.props.wind} </td>
-                    <td>{this.props.cloudiness} </td>
-                    <td>{this.props.pressure}  </td>
-                    <td>{this.props.humidity}  </td>
+                    <td>{this.props.temperature}</td>
+                    <td>{this.props.wind}</td>
+                    <td>{this.props.cloudiness}</td>
+                    <td>{this.props.pressure}</td>
+                    <td>{this.props.humidity}</td>
                     <td>{this.props.sunrise}</td>
                     <td>{this.props.sunset}</td>
-                    <td>Lon {this.props.geocoordsLon}° E, Lat 
-                    {this.props.geocoordsLat}° N</td> 
+                    {/* <td>Lon {this.props.geocoordsLon}° E, Lat 
+                    {this.props.geocoordsLat}° N</td>  */}
                </tr>
                 
             </React.Fragment>
