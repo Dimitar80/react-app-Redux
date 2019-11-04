@@ -24,7 +24,7 @@ class Clock extends React.Component {
     render() {
       return (
         <p className="App-clock">
-          The current time is {this.state.time}.
+          The current date and time and is - {this.state.time}.
         </p>
       );
     }

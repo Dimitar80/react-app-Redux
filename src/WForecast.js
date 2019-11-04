@@ -8,6 +8,9 @@ import ExtForecast from './ExtForecast'
 import ExtForecastSec from './ExtForecastSec'
 import Clock from './Clock'
 import Error from './Error'
+import EnterCity from './EnterCity'
+import InputCity from './InputCity'
+import ReactTooltip from 'react-tooltip'
 
 
 
@@ -33,11 +36,13 @@ class WForecast extends React.Component {
             wdataex: null,
          // wdata: [],{},
             // array: [],
-            city: '',
+            // city: null
+            city: '', 
             btnRef: "Refresh",
             btnOpenClose: "Open",
             error: null,
             orange: true,
+            // wdataexEntered: false
             
         }
     }
@@ -49,21 +54,16 @@ class WForecast extends React.Component {
         console.log(event.target.id)
        this.setState({ show: !this.state.show });
         console.log("Button clicked...")
-
         
         this.setState({orange: !this.state.orange})
 
         let butText = this.state.btnOpenClose === "Open" ? "Close" : "Open"
         this.setState({btnOpenClose: butText});
-
-        // let newColor = this.state.color === '#008000' ? '#7c8000' : '#008000'
-        // this.setState({color: newColor});
         // kuracB = () => {
         //     let butText = this.state.btnOpenClose === "Open" ? "Close" : "Open"
         //     this.setState({btnOpenClose: butText});
         // }
-       
-    }
+       }
 
     // refresh = (event) => {
     //     console.log(event.target.id)
@@ -73,20 +73,27 @@ class WForecast extends React.Component {
     //     let butRefreshed = this.state.btnRef === "Refresh" ? "Refreshed" : "Refresh"
     //     this.setState({btnRef: butRefreshed});
     // }
+     
 
-
-    saveInput = (event) => {
+    /*saveInput*/ setCity = (event) => {
+        // let val = this.state.city ===  event.target.value ? 'error' : event.target.value
+        // this.setState({city: val})
         this.setState({city: event.target.value})
     }
 
     capFirstLetter(string) {
         return string[0].toUpperCase() + string.slice(1);
     }
+    
+    
    // Start - On SEARCH BUTTON //
     showNewCity = () => {
         let newCity = this.capFirstLetter(this.state.city)
-        document.getElementById('new-city').value = null
-       axios.all([
+        // document.getElementById('new-city').value = null
+ 
+         
+     
+        axios.all([
             axios.get('https://api.openweathermap.org/data/2.5/weather?q='+ newCity +'&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040'),
             axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+ newCity +'&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040')
              ])
@@ -106,41 +113,52 @@ class WForecast extends React.Component {
                 wdata: <Error />
             })
         })
-    }
+
+}
     // End - On SEARCH BUTTON //
     
 
-    // Default 'SKOPJE' City//
-    componentDidMount () {
-        // this.setState({ loading: true })
-        axios.all([
-            axios.get(`https://api.openweathermap.org/data/2.5/weather?id=785842&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040`),
-            axios.get(`https://api.openweathermap.org/data/2.5/forecast?id=785842&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040`),
-        ])
-            .then(axios.spread((responseOne, responseTwo ) => {
-                console.log(responseOne.data)
-                console.log(responseTwo.data)
-                // const newdata = response.data.weather[0]
-                // const newdata = response.data
-                // console.log(newdata)
-                // console.log(newdata.sys.country)
-            this.setState({
-                wdata: responseOne.data,
-                wdataex: responseTwo.data
-             })
-            console.log(this.state.wdata)
-            console.log(this.state.wdataex)
-            }))
-            .catch((error) => { // error zaso ne sveti ???//
-                this.setState({
-                    wdata: <Error />
-                })
-            console.log(this.state.wdata)
-            })
-    }
+    // Default 'SKOPJE' City
+    // componentDidMount () {
+    //     // this.setState({ loading: true })
+    //     axios.all([
+    //         axios.get(`https://api.openweathermap.org/data/2.5/weather?id=785842&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040`),
+    //         axios.get(`https://api.openweathermap.org/data/2.5/forecast?id=785842&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040`),
+    //     ])
+    //         .then(axios.spread((responseOne, responseTwo ) => {
+    //             console.log(responseOne.data)
+    //             console.log(responseTwo.data)
+    //             // const newdata = response.data.weather[0]
+    //             // const newdata = response.data
+    //             // console.log(newdata)
+    //             // console.log(newdata.sys.country)
+    //         this.setState({
+    //             wdata: responseOne.data,
+    //             wdataex: responseTwo.data
+    //          })
+    //         console.log(this.state.wdata)
+    //         console.log(this.state.wdataex)
+    //         }))
+    //         .catch((error) => { // error zaso ne sveti ???//
+    //             this.setState({
+    //                 wdata: <Error />
+    //             })
+    //         console.log(this.state.wdata)
+    //         })
+    // }
     
     render () {
+        // if(this.setCity === this.city){
+        //     // this.setState({ wdata: <InputCity />})
+        //     <h2>ERROR</h2>
+        //  }
+         if (!this.city) {
+    <EnterCity /> /*'Please input a city name'*/
+  } else {
+    showNewCity(this.city)
+  }
 
+   
         let btn_class = this.state.orange ? "orangeButton" : "whiteButton";
         return (
             <React.Fragment>
@@ -149,17 +167,21 @@ class WForecast extends React.Component {
                 {/* {this.state.wdata} */}
                </div>
                <div>
-                   <h1 id='wftitle'>Weather Forecast </h1> 
+                   <h1 id='wftitle'> Weather Forecast </h1> 
                    <div id='srcleft'>
                        {/* Automatic addin and finishing when typping */}
                         <input 
+                        type='text'
                         className='cico' 
                         id='new-city'
-                        onChange={this.saveInput}
+                        onChange={this.setCity}
                         placeholder='Enter City' 
                         style={{textAlign:'center'}}
                         />
-                        <button id='src-btn' onClick={this.showNewCity}>Get Weather</button>
+                        
+                        <button id='src-btn' onClick={this.showNewCity}>
+                            Get Weather
+                        </button>
                    </div>
                    <div id='srcright'>
                         <h2 className='wfcwf'>Current Weather Forecast in: &nbsp; 
@@ -170,7 +192,7 @@ class WForecast extends React.Component {
                  {/* <p>{datetime}</p>
                  <p>{time}</p> */}
                  
-                        <button id='refresh' onClick={this.refresh} >
+                        <button id='refresh' /*onClick={this.showNewCity}*/ >
                         Referesh 
                         </button>
                     </div>
@@ -204,17 +226,23 @@ class WForecast extends React.Component {
                           humidity={this.state.wdata.main.humidity}
                            sunrise={this.state.wdata.sys.sunrise}
                             sunset={this.state.wdata.sys.sunset} 
-                      geocoordsLon={this.state.wdata.coord.lon}
-                      geocoordsLat={this.state.wdata.coord.lat}/>
+                           />
                       }
                    
                     {/* {  
-                        !this.state.wdata 
-                        ?<tr> 
-                            <td>LOADING ...</td>
-                        </tr>
-                        : this.state.wdata
+                        !this.state.wdata
+                        ? < EnterCity />
+                        : this.state.wdata && <CurrForecast 
+                   temperature={this.state.wdata.main.temp}
+                          wind={this.state.wdata.wind.speed}
+                    cloudiness={this.state.wdata.clouds.all}
+                      pressure={this.state.wdata.main.pressure}
+                      humidity={this.state.wdata.main.humidity}
+                       sunrise={this.state.wdata.sys.sunrise}
+                        sunset={this.state.wdata.sys.sunset} 
+                         />
                     } */}
+
                     
                     </tbody>
                 </table>
@@ -229,14 +257,16 @@ class WForecast extends React.Component {
                 {this.state.btnOpenClose} 
                 </button>
                 </div>
-                {this.state.show &&  <ExtForecastSec 
+                    {
+                    this.state.show &&  <ExtForecastSec 
                              time={this.state.wdataex.list[0].dt_txt}
                       temperature={this.state.wdataex.list[0].main.temp}
                              wind={this.state.wdataex.list[0].wind.speed}
                        cloudiness={this.state.wdataex.list[0].clouds.all}
                          pressure={this.state.wdataex.list[0].main.pressure}
-                         humidity={this.state.wdataex.list[0].main.humidity}/> 
-                }
+                         humidity={this.state.wdataex.list[0].main.humidity}
+                         /> 
+                    }
                 
                 
             </React.Fragment>
