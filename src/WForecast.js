@@ -74,22 +74,40 @@ class WForecast extends React.Component {
     //     this.setState({btnRef: butRefreshed});
     // }
      
+    
 
     /*saveInput*/ setCity = (event) => {
         // let val = this.state.city ===  event.target.value ? 'error' : event.target.value
         // this.setState({city: val})
         this.setState({city: event.target.value})
+        console.log({city: event.target.value})
     }
+     
 
     capFirstLetter(string) {
         return string[0].toUpperCase() + string.slice(1);
+        
     }
     
     
+//      grad (){
+//     if (this.state.city: '') {
+//         /*<EnterCity />*/ <h1>Fuck OFF!</h1> /*'Please input a city name'*/
+//       } else {
+//         this.showNewCity
+//     }
+// }
+
+// onOff = () => {
+//     this.state.city === '' ? EnterCity : ''
+// }
+     
    // Start - On SEARCH BUTTON //
     showNewCity = () => {
         let newCity = this.capFirstLetter(this.state.city)
-        // document.getElementById('new-city').value = null
+        // console.log(this.capFirstLetter(this.state.city))
+        console.log(newCity)
+         // document.getElementById('new-city').value = null
  
          
      
@@ -113,8 +131,9 @@ class WForecast extends React.Component {
                 wdata: <Error />
             })
         })
+    }
 
-}
+
     // End - On SEARCH BUTTON //
     
 
@@ -148,15 +167,16 @@ class WForecast extends React.Component {
     // }
     
     render () {
-        // if(this.setCity === this.city){
-        //     // this.setState({ wdata: <InputCity />})
-        //     <h2>ERROR</h2>
-        //  }
-         if (!this.city) {
-    <EnterCity /> /*'Please input a city name'*/
-  } else {
-    showNewCity(this.city)
-  }
+        let pole = document.getElementById('new-city')
+        let header = '';
+        // preventDefault()
+        if (pole === null) {
+        //   header = <h1>Hello {/*{this.state.city}*/} </h1>;
+        header = console.log('Please Enter City');
+        } else {
+          header = this.showNewCity
+        // alert('ENTER CITY')
+        }
 
    
         let btn_class = this.state.orange ? "orangeButton" : "whiteButton";
@@ -179,9 +199,11 @@ class WForecast extends React.Component {
                         style={{textAlign:'center'}}
                         />
                         
-                        <button id='src-btn' onClick={this.showNewCity}>
+                        <button id='src-btn' onClick={header}>
                             Get Weather
                         </button>
+                        {/* <h2>K {this.state.wdata ? this.setCity : ''} </h2> */}
+                        
                    </div>
                    <div id='srcright'>
                         <h2 className='wfcwf'>Current Weather Forecast in: &nbsp; 
@@ -192,7 +214,7 @@ class WForecast extends React.Component {
                  {/* <p>{datetime}</p>
                  <p>{time}</p> */}
                  
-                        <button id='refresh' /*onClick={this.showNewCity}*/ >
+                        <button id='refresh' onClick={this.showNewCity} > 
                         Referesh 
                         </button>
                     </div>
@@ -217,8 +239,9 @@ class WForecast extends React.Component {
                      <tbody className="products-table-body">
                      {this.state.wdata && <CurrForecast 
                             //    key={this.state.wdata.id}
-                        //       city={this.state.wdata.name}
-                        //    country={this.state.wdata.sys.country}
+                             name = {'TESTIS'}
+                              city={this.state.wdata.name}
+                           country={this.state.wdata.sys.country}
                        temperature={this.state.wdata.main.temp}
                               wind={this.state.wdata.wind.speed}
                         cloudiness={this.state.wdata.clouds.all}
@@ -226,6 +249,7 @@ class WForecast extends React.Component {
                           humidity={this.state.wdata.main.humidity}
                            sunrise={this.state.wdata.sys.sunrise}
                             sunset={this.state.wdata.sys.sunset} 
+
                            />
                       }
                    

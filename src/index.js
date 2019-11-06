@@ -17,7 +17,7 @@ import WForecastTest from './WForecastTest'
 
 
 
-const app = document.getElementById('app')
+
 
 
 
@@ -66,6 +66,8 @@ const Routes = () => {
         </Router>
     )
 }
+
+const app = document.getElementById('app')
 
 ReactDOM.render(
     <Provider store={store}>

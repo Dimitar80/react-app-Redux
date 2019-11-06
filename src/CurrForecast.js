@@ -14,6 +14,10 @@ class CurrForecast extends React.Component {
     }
   
     render () {
+        console.log
+        ("CURR TEMP IN " + this.props.city +', '+ this.props.country + ' IS - ' + this.props.temperature)
+        console.log(this.props)
+        console.log(this.props.name)
         return (
             <React.Fragment>
                <tr>
