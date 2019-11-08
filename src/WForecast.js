@@ -23,9 +23,6 @@ import ReactTooltip from 'react-tooltip'
 //                 + currentdate.getMinutes() + ':'
 //                 + currentdate.getSeconds()
 
-// var green = '#39D1B4';
-// var yellow = '#FFD712';
-
 class WForecast extends React.Component {
     constructor (props) {
         super(props)
@@ -88,29 +85,21 @@ class WForecast extends React.Component {
         return string[0].toUpperCase() + string.slice(1);
         
     }
-    
-    
-//      grad (){
-//     if (this.state.city: '') {
-//         /*<EnterCity />*/ <h1>Fuck OFF!</h1> /*'Please input a city name'*/
-//       } else {
-//         this.showNewCity
-//     }
-// }
 
-// onOff = () => {
-//     this.state.city === '' ? EnterCity : ''
-// }
+    keyPress = (event) => {
+        if (event.key === "Enter") {
+          this.showNewCity()
+        }
+    }
+    
+    
      
    // Start - On SEARCH BUTTON //
     showNewCity = () => {
-        let newCity = this.capFirstLetter(this.state.city)
-        // console.log(this.capFirstLetter(this.state.city))
+        // let newCity = this.capFirstLetter(this.state.city)
+        let newCity = this.state.city
         console.log(newCity)
          // document.getElementById('new-city').value = null
- 
-         
-     
         axios.all([
             axios.get('https://api.openweathermap.org/data/2.5/weather?q='+ newCity +'&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040'),
             axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+ newCity +'&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040')
@@ -132,11 +121,9 @@ class WForecast extends React.Component {
             })
         })
     }
-
-
+    
     // End - On SEARCH BUTTON //
     
-
     // Default 'SKOPJE' City
     // componentDidMount () {
     //     // this.setState({ loading: true })
@@ -165,12 +152,25 @@ class WForecast extends React.Component {
     //         console.log(this.state.wdata)
     //         })
     // }
+
+    //  Greeting = (/*e*/) => {
+    //     // const isLoggedIn = this.setCity;
+    //     // e.preventDefault()
+    //     if (this.setCity) {
+    //        this.showNewCity;
+    //     // console.log("ENTERED");
+    //     // alert("IMA")
+    //     } 
+    //      console.log("EMPTY");
+    //   }
     
     render () {
-        let pole = document.getElementById('new-city')
-        let header = '';
+        //VALIDACIJAAA!//
+        // console.log(this.capFirstLetter)
+        // let pole = document.getElementById('new-city')
+        let header = null;
         // preventDefault()
-        if (pole === null) {
+        if (!this.setCity) {
         //   header = <h1>Hello {/*{this.state.city}*/} </h1>;
         header = console.log('Please Enter City');
         } else {
@@ -192,14 +192,16 @@ class WForecast extends React.Component {
                        {/* Automatic addin and finishing when typping */}
                         <input 
                         type='text'
+                        // value="proba"
                         className='cico' 
                         id='new-city'
                         onChange={this.setCity}
+                        onKeyUp={this.keyPress}
                         placeholder='Enter City' 
                         style={{textAlign:'center'}}
                         />
                         
-                        <button id='src-btn' onClick={header}>
+                        <button type='submit' id='src-btn' onClick={header}>
                             Get Weather
                         </button>
                         {/* <h2>K {this.state.wdata ? this.setCity : ''} </h2> */}
