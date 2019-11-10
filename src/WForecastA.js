@@ -39,6 +39,7 @@ class WForecastA extends React.Component {
             city: '', 
             btnRef: "Refresh",
             btnOpenClose: "Open",
+            message: null,
             error: null,
             orange: true,
             // wdataexEntered: false
@@ -72,7 +73,7 @@ class WForecastA extends React.Component {
           console.log(event.target.id)
        
         console.log("Button clicked...")
-
+        let msg = this.state.message === null ? 'PLEASE ENTER CITY IN THE ABOVE INPUT FIELD' : null
         let butText = this.state.btnOpenClose === "Open" ? "Close" : "Open"
         let newCity = this.state.city
         if(newCity){
@@ -92,6 +93,7 @@ class WForecastA extends React.Component {
         //     this.setState({error: /*this.state.show && */ <ErrorTess />})
         // })
       } console.log('ERR');
+      this.setState({message: msg})
       // Mora da e na soodvetno mesto --- < ExtForErr />
 } 
 
@@ -174,7 +176,12 @@ class WForecastA extends React.Component {
                         </button>
                     </div>
                     {/* CLOCK CLASS COMPONENT */}
-                    <div style={{textAlign: 'center'}}><Clock /></div>
+                    <div style={{textAlign: 'center'}}>
+                           {this.state.wdata && <Clock  
+                           city={this.state.wdata.name}
+                           country={this.state.wdata.sys.country} />
+                           }
+                    </div>
                </div>
                <div id='wapp-container'>
                 <table className="table">
@@ -228,13 +235,14 @@ class WForecastA extends React.Component {
                 <div id='extfield'>
                 <h2 id ='secExt' className='wfcwf'>Show Extended Weather Forecast in: &nbsp; 
                 <span style={{color: 'black'}}>
-                {this.state.wdata ? this.state.wdata.name + ', ' + this.state.wdata.sys.country : null 
+                {this.state.wdata ? this.state.wdata.name + ', ' + this.state.wdata.sys.country : this.state.message
+                /*null*/ 
                 /*< ExtForErr />*/}
                 </span> 
                  </h2> &nbsp; 
                 <button  id='btn-ext'  className={btn_class} onClick={this.ExtFore}> 
-                {this.state.btnOpenClose} 
-                </button>
+                {this.state.btnOpenClose}
+                  </button> 
                 </div>
                     {/* {  
                     this.state.wdataex ? this.state.show &&  <ExtForecastSec 
