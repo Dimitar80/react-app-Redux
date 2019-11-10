@@ -12,6 +12,7 @@ import Home from './Home'
 import Login from './Login'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import './shared.css'
+import WForecastA from './WForecastA'
 import WForecast from './WForecast'
 import WForecastTest from './WForecastTest'
 
@@ -49,7 +50,7 @@ const Routes = () => {
                         />
                     }
                 />
-                <Route exact path='/weather' component={WForecast} />
+                <Route exact path='/weather' component={WForecastA} />
                 {/* <Route
                     exact
                     path='/weather'

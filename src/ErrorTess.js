@@ -6,7 +6,7 @@ class ErrorTess extends React.Component {
         super(/*props*/)
         this.state = {
             show: false,
-            error: null
+            // error: null
            
         }
     }
@@ -14,7 +14,7 @@ class ErrorTess extends React.Component {
     close = (event) => {
         console.log(event.target.id)
     //    this.setState({ show: !this.state.show });
-    // this.setState({ error: null });
+        this.setState({ error: null });
         console.log(!this.state.show)
         console.log("Button clicked...")
     }
