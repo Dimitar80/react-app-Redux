@@ -9,6 +9,7 @@ class Home extends React.Component {
         }
     }
 
+    
     showOrHide = (event) => {
         console.log(event.target.id)
         /* menuvanje na state so setState() metoda

@@ -21,8 +21,8 @@ import Extract from './Extract'
 //   }
 
 
-  var green = '#39D1B4';
-  var yellow = '#FFD712';
+  const green = '#39D1B4';
+  const yellow = '#FFD712';
 
 class User extends React.Component {
     constructor (/*props*/) {
@@ -35,8 +35,7 @@ class User extends React.Component {
             // green : '#39D1B4',
             // yellow : '#FFD712'
             // isLoggedIn: false
-
-        }
+       }
     }   
 
         // remove = () =>
@@ -115,7 +114,9 @@ class User extends React.Component {
                     email={this.props.email}
                     street={this.props.street}
                     suite={this.props.suite}
-                    ex={this.showOrHide}/>}
+                    ex={this.showOrHide}
+                    />
+                    }
 
                     {/* <div id='extract'> */}
                     {/* {this.state.show && <div id='lab'>ID:

@@ -6,7 +6,7 @@ import './shared.css'
 // import User from './User'
 // import UserList from './UsersList'
 
-
+//HOC//
 class Wrapper extends React.Component {
     constructor (props) {
         super(props)
@@ -28,6 +28,7 @@ class Wrapper extends React.Component {
             this.setState({ udata: response.data, loading: false })
         })
         .catch((error) => {
+            console.log(error)
             this.setState({ error: <Error />, loading: false })
         })
     }
