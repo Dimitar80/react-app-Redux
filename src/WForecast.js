@@ -45,40 +45,13 @@ class WForecast extends React.Component {
         }
     }
 
-    cancel = (event) => {
-        console.log(event.target.id)
-       this.setState({ show: !this.state.show });
-        console.log(!this.state.show)
-        console.log("Button clicked...")
-    }
-
-    
-     
-    //Open/CLose btn//
-    ExtFore = (event) => {
-        console.log(event.target.id)
-       this.setState({ show: !this.state.show });
-        console.log("Button clicked...")
-        
-        this.setState({orange: !this.state.orange})
-
-        let butText = this.state.btnOpenClose === "Open" ? "Close" : "Open"
-        this.setState({btnOpenClose: butText});
-        // kuracB = () => {
-        //     let butText = this.state.btnOpenClose === "Open" ? "Close" : "Open"
-        //     this.setState({btnOpenClose: butText});
-        // }
-       }
-
-    // refresh = (event) => {
+    // cancel = (event) => {
     //     console.log(event.target.id)
     //    this.setState({ show: !this.state.show });
-
+    //     console.log(!this.state.show)
     //     console.log("Button clicked...")
-    //     let butRefreshed = this.state.btnRef === "Refresh" ? "Refreshed" : "Refresh"
-    //     this.setState({btnRef: butRefreshed});
     // }
-     
+
     
 
     /*saveInput*/ setCity = (event) => {
@@ -100,14 +73,14 @@ class WForecast extends React.Component {
         }
     }
 
-    getWeather = (/*e*/) => {
-        /*e.preventDefault()*/
-        if (this.setCity ) {
-            this.showNewCity()
-        }
-        /*e.preventDefault()*/
-        console.log('Please enter city')
-    }
+    // getWeather = (/*e*/) => {
+    //     /*e.preventDefault()*/
+    //     if (this.setCity ) {
+    //         this.showNewCity()
+    //     }
+    //     /*e.preventDefault()*/
+    //     console.log('Please enter city')
+    // }
     // handleSubmit = (e, city, searchCity, setError) => {
     //     /** 
     //      * Handles data submit and validates input string 
@@ -120,17 +93,37 @@ class WForecast extends React.Component {
     //     }
     //   }
     
-    
+    ExtFore = (event) => {
+        let newCity = this.state.city
+        if(newCity){
+          console.log(event.target.id)
+       this.setState({ show: !this.state.show });
+        console.log("Button clicked...")
+        
+        this.setState({orange: !this.state.orange})
+
+        let butText = this.state.btnOpenClose === "Open" ? "Close" : "Open"
+        this.setState({btnOpenClose: butText});
+    } else {
+        // let alert = <h1>Helooo</h1>
+        // document.getElementById('extfield').innerHTML = alert
+        document.getElementById('extfield').innerHTML = '<h1>Please fill above input with city!</h1>'
+        // document.getElementById('extfield').innerHTML = alert('kkk')
+        console.log('Please fill above input with city')
+    }
+}
      
    // Start - On SEARCH BUTTON //
     showNewCity = () => {
         // let newCity = this.capFirstLetter(this.state.city)
         let newCity = this.state.city
+        document.getElementById('new-city').value = null
+        // document.getElementById('extfield').innerHTML = ???
         if(newCity){
         console.log(newCity)
          // document.getElementById('new-city').value = null
         axios.all([
-            axios.get('https://api.openweathermap.org/data/2.5/weathe?q='+ newCity +'&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040'),
+            axios.get('https://api.openweathermap.org/data/2.5/weather?q='+ newCity +'&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040'),
             axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+ newCity +'&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040')
              ])
             .then(axios.spread((responseOne, responseTwo ) => {
@@ -149,7 +142,9 @@ class WForecast extends React.Component {
         })
     } else{
         // const element = <h1 style={{ color: 'red' }}>Hello world</h1>
-        /* const pep =*/ document.getElementById('new-city').value = 'Please Input City'
+        // /* const pep =*/ document.getElementById('new-city').value = 'Please Input City'
+        alert('Please Input City')
+        //  {<ReactTooltip place='right' type='warning' effect='solid' />}
         //   document.getElementById('new-city').value.style = 'red'
         //  pep.style = 'color: red'
         console.log('Please enter city')
@@ -300,8 +295,7 @@ class WForecast extends React.Component {
                           humidity={this.state.wdata.main.humidity}
                            sunrise={this.state.wdata.sys.sunrise}
                             sunset={this.state.wdata.sys.sunset} 
-
-                           />
+                        />
                       }
                    
                     {/* {  
@@ -328,7 +322,7 @@ class WForecast extends React.Component {
                 {this.state.wdata ? this.state.wdata.name + ', ' + this.state.wdata.sys.country : null}
                 </span> 
                  </h2> &nbsp; 
-                <button  /*id='btn-ext'*/  className={btn_class} onClick={this.ExtFore}> 
+                <button  id='btn-ext'  className={btn_class} onClick={this.ExtFore}> 
                 {this.state.btnOpenClose} 
                 </button>
                 </div>

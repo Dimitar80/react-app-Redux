@@ -6,20 +6,20 @@ class ErrorTess extends React.Component {
         super(/*props*/)
         this.state = {
             show: false,
-            // isToggleOn: true
+            error: null
+           
         }
     }
-    // handleClick() {
-    //     this.setState(state => ({
-    //       isToggleOn: !state.isToggleOn
-    //     }));
-    //   }
+    
     close = (event) => {
         console.log(event.target.id)
-       this.setState({ show: !this.state.show });
+    //    this.setState({ show: !this.state.show });
+    // this.setState({ error: null });
         console.log(!this.state.show)
         console.log("Button clicked...")
     }
+
+    // setState({ error: null })
 
     render () {
     return (
