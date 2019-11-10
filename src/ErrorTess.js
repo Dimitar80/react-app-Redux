@@ -14,7 +14,7 @@ class ErrorTess extends React.Component {
     //       isToggleOn: !state.isToggleOn
     //     }));
     //   }
-    cancel = (event) => {
+    close = (event) => {
         console.log(event.target.id)
        this.setState({ show: !this.state.show });
         console.log(!this.state.show)
@@ -28,7 +28,7 @@ class ErrorTess extends React.Component {
             Oops, something went wrong!
              Try going back or refreshing the page.
         </h1>
-        <button id='canc' onClick={this.cancel} >Close</button>
+        <button id='canc' onClick={this.close} >Close</button>
        
         <button id='go_back' onClick={() => window.history.back()}>
             Go back
