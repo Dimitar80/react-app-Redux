@@ -14,6 +14,8 @@ class ExtForecastSec extends React.Component {
     }
   
     render () {
+        // SMENI DESIGN I RACIONALNO RESI KAKO KAJ USER SO MAP ili FOR da gi vadi data i dava vo nov red!!!
+        //-nova komp. ko so kaza Bojan!?//
         return (
             <React.Fragment>
         <table className="table-ext">
@@ -52,14 +54,37 @@ class ExtForecastSec extends React.Component {
                     {this.props.geocoordsLat}° N</td>  */}
                </tr>
                <tr>
-                    
-                    <td>{this.props.temperature}</td>
-                    <td>{this.props.wind}</td>
-                    <td>{this.props.cloudiness}</td>
-                    <td>{this.props.pressure}</td>
-                    <td>{this.props.humidity}</td>
-                    
+                    <td id='df' colSpan='5'>
+                      <h2 id='nm'>Daily forecast &nbsp;
+                       <span style={{color: 'red'}}>
+                         {this.props.timeOne}
+                       </span>
+                      </h2>
+                    </td>
                </tr>
+               <tr>
+                    <td>{this.props.temperatureOne}</td>
+                    <td>{this.props.windOne}</td>
+                    <td>{this.props.cloudinessOne}</td>
+                    <td>{this.props.pressureOne}</td>
+                    <td>{this.props.humidityOne}</td>
+                </tr>
+                <tr>
+                    <td id='df' colSpan='5'>
+                      <h2 id='nm'>Daily forecast &nbsp;
+                       <span style={{color: 'red'}}>
+                         {this.props.timeTwo}
+                       </span>
+                      </h2>
+                    </td>
+               </tr>
+               <tr>
+                    <td>{this.props.temperatureTwo}</td>
+                    <td>{this.props.windTwo}</td>
+                    <td>{this.props.cloudinessTwo}</td>
+                    <td>{this.props.pressureTwo}</td>
+                    <td>{this.props.humidityTwo}</td>
+                </tr>
             </tbody>
         </table>
                 

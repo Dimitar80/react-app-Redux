@@ -271,12 +271,27 @@ class WForecastA extends React.Component {
                     } */}
                     {  
                     this.state.wdataex && this.state.show &&  <ExtForecastSec 
+                            // SO MAP Sredi go ovoj DRY code //
                              time={this.state.wdataex.list[0].dt_txt}
                       temperature={this.state.wdataex.list[0].main.temp}
                              wind={this.state.wdataex.list[0].wind.speed}
                        cloudiness={this.state.wdataex.list[0].clouds.all}
                          pressure={this.state.wdataex.list[0].main.pressure}
                          humidity={this.state.wdataex.list[0].main.humidity}
+
+                             timeOne={this.state.wdataex.list[1].dt_txt}
+                      temperatureOne={this.state.wdataex.list[1].main.temp}
+                             windOne={this.state.wdataex.list[1].wind.speed}
+                       cloudinessOne={this.state.wdataex.list[1].clouds.all}
+                         pressureOne={this.state.wdataex.list[1].main.pressure}
+                         humidityOne={this.state.wdataex.list[1].main.humidity}
+
+                             timeTwo={this.state.wdataex.list[2].dt_txt}
+                      temperatureTwo={this.state.wdataex.list[2].main.temp}
+                             windTwo={this.state.wdataex.list[2].wind.speed}
+                       cloudinessTwo={this.state.wdataex.list[2].clouds.all}
+                         pressureTwo={this.state.wdataex.list[2].main.pressure}
+                         humidityTwo={this.state.wdataex.list[2].main.humidity}
                          />  
                     }
                 </React.Fragment>
