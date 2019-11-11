@@ -50,9 +50,9 @@ class WForecastA extends React.Component {
     CloseBtn = (event) => {
         console.log(event.target.id)
         this.setState({ error: null });
-        // console.log("Button clicked...")
-        // let buttonText = this.state.buttonText === "Expand" ? "Cancel" : "Expand"
-        // this.setState({buttonText: buttonText});
+        this.setState({ city: '' })
+        // document.getElementById('new-city').value = null
+        // let wrd = this.state.dir === null /*&& this.state.error === null*/ ? 'PLEASE ENTER CITY IN THE ABOVE INPUT FIELD' : null
     }
     /*saveInput*/ setCity = (event) => {
         // let val = this.state.city ===  event.target.value ? 'error' : event.target.value
@@ -110,8 +110,9 @@ class WForecastA extends React.Component {
         // let newCity = this.capFirstLetter(this.state.city)
         let newCity = this.state.city
         document.getElementById('new-city').value = null
-        let wrd = this.state.dir === null ? 'PLEASE ENTER CITY IN THE ABOVE INPUT FIELD' : null
+        let wrd = this.state.dir === null /*&& this.state.error === null*/ ? 'PLEASE ENTER CITY IN THE ABOVE INPUT FIELD' : null
         if(newCity){
+            // document.getElementById('new-city').value = null
         console.log(newCity)
         
         //  document.getElementById('extfield').innerHTML = 'extfield'
@@ -168,8 +169,9 @@ class WForecastA extends React.Component {
                         <button type='submit' id='src-btn' onClick={this.showNewCity}>
                             Get Weather
                         </button>
-                        {this.state.error}
-                        {/* {this.state.error ? <ErrorTess /> : null } */}
+                        {this.state.error }
+                        {/* {this.state.error ? <ErrorTess cl={this.CloseBtn} /> : this.state.dir } */}
+                        {/* {this.state.error ? <ErrorTess cl={this.CloseBtn} /> : null } */}
                         {/* <h2>K {this.state.wdata ? this.setCity : ''} </h2> */}
                         </div>
                    <div id='srcright'>
