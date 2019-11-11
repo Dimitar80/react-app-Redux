@@ -40,12 +40,20 @@ class WForecastA extends React.Component {
             btnRef: "Refresh",
             btnOpenClose: "Open",
             message: null,
+            dir: null,
             error: null,
             orange: true,
             // wdataexEntered: false
         }
     }
 
+    CloseBtn = (event) => {
+        console.log(event.target.id)
+        this.setState({ error: null });
+        // console.log("Button clicked...")
+        // let buttonText = this.state.buttonText === "Expand" ? "Cancel" : "Expand"
+        // this.setState({buttonText: buttonText});
+    }
     /*saveInput*/ setCity = (event) => {
         // let val = this.state.city ===  event.target.value ? 'error' : event.target.value
         // this.setState({city: val})
@@ -102,6 +110,7 @@ class WForecastA extends React.Component {
         // let newCity = this.capFirstLetter(this.state.city)
         let newCity = this.state.city
         document.getElementById('new-city').value = null
+        let wrd = this.state.dir === null ? 'PLEASE ENTER CITY IN THE ABOVE INPUT FIELD' : null
         if(newCity){
         console.log(newCity)
         
@@ -123,10 +132,11 @@ class WForecastA extends React.Component {
         .catch((error) => {
             console.log(error)
             // this.setState({error: /*this.state.show && */ <ErrorTess />})
-            this.setState({error: <ErrorTess />} )
+            this.setState({error: <ErrorTess cl={this.CloseBtn} />} )
         })
     } else {
-        alert('Please Input City')
+        // alert('Please Input City')
+        this.setState({dir: wrd})
         console.log('Please enter city')
         // {<ReactTooltip place='right' type='warning' effect='solid' />}
     }
@@ -165,7 +175,10 @@ class WForecastA extends React.Component {
                    <div id='srcright'>
                         <h2 className='wfcwf'>Current Weather Forecast in: &nbsp; 
                 <span style={{color: 'black'}}>
-                {this.state.wdata ? this.state.wdata.name + ', ' + this.state.wdata.sys.country : null}
+                {/* {this.state.wdata ? this.state.wdata.name + ', ' + this.state.wdata.sys.country : null} */}
+                {this.state.wdata ? this.state.wdata.name + ', ' + this.state.wdata.sys.country : this.state.dir
+                /*null*/ 
+                /*< ExtForErr />*/}
                 </span>
                  </h2>
                  {/* <p>{datetime}</p>
