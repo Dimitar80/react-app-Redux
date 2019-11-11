@@ -43,7 +43,6 @@ class WForecastA extends React.Component {
             error: null,
             orange: true,
             // wdataexEntered: false
-            
         }
     }
 
@@ -78,8 +77,8 @@ class WForecastA extends React.Component {
         let newCity = this.state.city
         if(newCity){
             this.setState({ show: !this.state.show });
-            this.setState({orange: !this.state.orange})
-            this.setState({btnOpenClose: butText});
+            this.setState({ orange: !this.state.orange })
+            this.setState({ btnOpenClose: butText });
         // axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+ newCity +'&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040')
         //     .then((responseTwo ) => {
         //         console.log(responseTwo.data)
@@ -123,7 +122,8 @@ class WForecastA extends React.Component {
             }))
         .catch((error) => {
             console.log(error)
-            this.setState({error: /*this.state.show && */ <ErrorTess />})
+            // this.setState({error: /*this.state.show && */ <ErrorTess />})
+            this.setState({error: <ErrorTess />} )
         })
     } else {
         alert('Please Input City')
@@ -159,9 +159,9 @@ class WForecastA extends React.Component {
                             Get Weather
                         </button>
                         {this.state.error}
+                        {/* {this.state.error ? <ErrorTess /> : null } */}
                         {/* <h2>K {this.state.wdata ? this.setCity : ''} </h2> */}
-                        
-                   </div>
+                        </div>
                    <div id='srcright'>
                         <h2 className='wfcwf'>Current Weather Forecast in: &nbsp; 
                 <span style={{color: 'black'}}>
