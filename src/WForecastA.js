@@ -133,7 +133,7 @@ class WForecastA extends React.Component {
         .catch((error) => {
             console.log(error)
             // this.setState({error: /*this.state.show && */ <ErrorTess />})
-            this.setState({error: <ErrorTess cl={this.CloseBtn} />} )
+            this.setState({error: <ErrorTess clBtn={this.CloseBtn} />} )
         })
     } else {
         // alert('Please Input City')

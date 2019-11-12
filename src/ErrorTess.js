@@ -36,7 +36,7 @@ class ErrorTess extends React.Component {
             Try going back or refreshing the page.
         </h1>
         {/* <button id='canc' onClick={this.CloseBtn} > Close </button> */}
-        <button id='canc' /*onClick={() => setState({ error: null})}*/ onClick={this.props.cl} >
+        <button id='canc' /*onClick={() => setState({ error: null})}*/ onClick={this.props.clBtn} >
              Close 
         </button>
         <button id='go_back' onClick={() => window.history.back()}>
