@@ -392,13 +392,15 @@ li {
 }
 
 #extforerr{
+    position: relative;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
    width: 500px;
    height: 200px;
-   background-color: cadetblue;
+   border-radius: 20px;
+   background-color: orange;
 }
 
 

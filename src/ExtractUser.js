@@ -2,7 +2,7 @@ import React from 'react'
 import './style.css'
 
 
-class Extract extends React.Component {
+class ExtractUser extends React.Component {
     constructor (/*props*/) {
         super(/*props*/)
         /*Initial State*/ 
@@ -57,7 +57,8 @@ class Extract extends React.Component {
                             <button className="primary-button long" id="create-btn" >
                             Save
                             </button>
-                            <button className="primary-button long" id="create-btn" >
+                            <button className="primary-button long" id="create-btn" 
+                            onClick={() => this.props.del(this.props.id)}>
                             Delete
                             </button>
                             <button className="primary-button long" id="create-btn"  onClick={this.props.ex}>
@@ -70,4 +71,4 @@ class Extract extends React.Component {
     }
 }
 
-export default Extract
+export default ExtractUser

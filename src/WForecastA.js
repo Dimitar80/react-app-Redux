@@ -43,6 +43,7 @@ class WForecastA extends React.Component {
             dir: null,
             error: null,
             orange: true,
+            extText: "Show Extended Weather Forecast in:"
             // wdataexEntered: false
         }
     }
@@ -54,6 +55,7 @@ class WForecastA extends React.Component {
         // document.getElementById('new-city').value = null
         // let wrd = this.state.dir === null /*&& this.state.error === null*/ ? 'PLEASE ENTER CITY IN THE ABOVE INPUT FIELD' : null
     }
+    
     /*saveInput*/ setCity = (event) => {
         // let val = this.state.city ===  event.target.value ? 'error' : event.target.value
         // this.setState({city: val})
@@ -77,16 +79,25 @@ class WForecastA extends React.Component {
     // onClick f-ja za Show Extended Weather Forecast in: //
     ExtFore = (event) => {
         // event.preventDefault()
-          console.log(event.target.id)
-       
+        console.log(event.target.id)
         console.log("Button clicked...")
-        let msg = this.state.message === null ? 'PLEASE ENTER CITY IN THE ABOVE INPUT FIELD' : null
+        let msg = this.state.message === null ? /*'PLEASE ENTER CITY IN THE ABOVE INPUT'*/
+        <ExtForErr /> /*this.setState({extText: !this.state.extText})*/: null
+
+        let eTxt = this.state.extText === "Show Extended Weather Forecast in:" ? null :
+         "Show Extended Weather Forecast in:"
+
         let butText = this.state.btnOpenClose === "Open" ? "Close" : "Open"
         let newCity = this.state.city
+        
         if(newCity){
+            console.log(newCity)
             this.setState({ show: !this.state.show });
-            this.setState({ orange: !this.state.orange })
+            // this.setState({ extText: eTxt})
+            this.setState({ extText: "Show Extended Weather Forecast in:"/*eTxt*/})
+            this.setState({ orange: !this.state.orange });
             this.setState({ btnOpenClose: butText });
+            
         // axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+ newCity +'&units=metric&appid=8e931d42fb9f6552578e4ccbbc6c0040')
         //     .then((responseTwo ) => {
         //         console.log(responseTwo.data)
@@ -99,8 +110,17 @@ class WForecastA extends React.Component {
         //     console.log(error)
         //     this.setState({error: /*this.state.show && */ <ErrorTess />})
         // })
-      } console.log('ERR');
-      this.setState({message: msg})
+      } else 
+      {
+          console.log('ERR');
+    //   this.setState({ show: !this.state.show });
+      this.setState({message: msg});
+      this.setState({ orange: !this.state.orange });
+      this.setState({ btnOpenClose: butText });
+      this.setState({ extText: eTxt})
+    }
+    //   this.setState({ extText: eTxt})
+      
       // Mora da e na soodvetno mesto --- < ExtForErr />
 } 
 
@@ -248,9 +268,11 @@ class WForecastA extends React.Component {
                 </table>
                 </div>
                 <div id='extfield'>
-                <h2 id ='secExt' className='wfcwf'>Show Extended Weather Forecast in: &nbsp; 
+                <h2 id ='secExt' className='wfcwf'> {/*Show Extended Weather Forecast in:*/}
+                {this.state.extText}  &nbsp; 
                 <span style={{color: 'black'}}>
-                {this.state.wdata ? this.state.wdata.name + ', ' + this.state.wdata.sys.country : this.state.message
+                {this.state.wdata ? this.state.wdata.name + ', ' + this.state.wdata.sys.country : 
+                this.state.message
                 /*null*/ 
                 /*< ExtForErr />*/}
                 </span> 
@@ -259,16 +281,7 @@ class WForecastA extends React.Component {
                 {this.state.btnOpenClose}
                   </button> 
                 </div>
-                    {/* {  
-                    this.state.wdataex ? this.state.show &&  <ExtForecastSec 
-                             time={this.state.wdataex.list[0].dt_txt}
-                      temperature={this.state.wdataex.list[0].main.temp}
-                             wind={this.state.wdataex.list[0].wind.speed}
-                       cloudiness={this.state.wdataex.list[0].clouds.all}
-                         pressure={this.state.wdataex.list[0].main.pressure}
-                         humidity={this.state.wdataex.list[0].main.humidity}
-                         />   : < ExtForErr />
-                    } */}
+                    
                     {  
                     this.state.wdataex && this.state.show &&  <ExtForecastSec 
                             // SO MAP Sredi go ovoj DRY code //

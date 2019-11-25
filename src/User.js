@@ -2,7 +2,7 @@ import React from 'react'
 // import Extract from 'react';
 import './style.css'
 import './shared.css'
-import Extract from './Extract'
+import ExtractUser from './ExtractUser'
 
 // function ExpandButton(props) {
 //     return (
@@ -38,9 +38,7 @@ class User extends React.Component {
        }
     }   
 
-        // remove = () =>
-
-
+       
        showOrHide = (event) => {
         console.log(event.target.id)
         /* menuvanje na state so setState() metoda
@@ -57,26 +55,23 @@ class User extends React.Component {
         // this.setState({color: newColor});
     }
 
-    // myPress = () => {
-    //     this.setState({
-    //       color: yellow
-    //     });
-    //   };
-    // handleClick = () => {
-    //     console.log("Button clicked...")
-    //     let buttonText = this.state.buttonText == "Expand" ? "Cancel" : "Expand"
-    //     this.setState({buttonText: buttonText})
-    //   }
-
-    // handleExpandClick() {
-    //     this.setState({isLoggedIn: true});
-    //   }
-    
-    // handleCancelClick() {
-    //     this.setState({isLoggedIn: false});
-    //   }
-
-      
+    // delete = (props) => {
+    //     let selUser = this.props.data.id
+    //  if(udata === this.props.data){
+    //      for( let i = 0; i < udata.length; i++){
+    //          if(udata.length[i].id === selUser){
+    //              console.log(selUser)
+    //              udata.slice()
+    //              return
+    //          } else{ console.log('error')}
+    //      }
+    //  }
+    //    }
+    delraw = () => {
+        alert('Button Clicked');
+        const items = this.state.udata.filter(item => item.id !== itemId);
+    this.setState({ items: items });
+    }
 
     render () {
         // const isLoggedIn = this.state.isLoggedIn;
@@ -105,7 +100,7 @@ class User extends React.Component {
                         </button>
                     </td>
                     </tr>
-                    {this.state.show && <Extract 
+                    {this.state.show && <ExtractUser 
                     key={this.props.id}
                     // expand={this.expand}
                     id={this.props.id} 
@@ -115,6 +110,7 @@ class User extends React.Component {
                     street={this.props.street}
                     suite={this.props.suite}
                     ex={this.showOrHide}
+                    del={this.delraw}
                     />
                     }
 

@@ -5,6 +5,7 @@ import axios from 'axios'
 import './shared.css'
 // import User from './User'
 // import UserList from './UsersList'
+// import ExtractUser from './ExtractUser'
 
 //HOC//
 class Wrapper extends React.Component {
@@ -17,6 +18,7 @@ class Wrapper extends React.Component {
         }
     }
 
+
     componentDidMount () {
         this.setState({ loading: true })
         // console.log(loading)
@@ -24,14 +26,34 @@ class Wrapper extends React.Component {
             method: this.props.methodType,
             url: this.props.url
         }).then((response) => {
-            console.log(response.data)
+            // console.log(response.data)
             this.setState({ udata: response.data, loading: false })
+            console.log(this.state.udata)
         })
         .catch((error) => {
             console.log(error)
             this.setState({ error: <Error />, loading: false })
         })
     }
+    
+    // delete = (props) => {
+    //        let selUser =           /*<ExtractUser id={this.props.id} />*/
+    //        console.log(selUser)
+    //        arData = this.state.udata
+    //        console.log(arData)
+    //     if(arData){
+    //         console.log(arData)
+    //         for( let i = 0; i < arData.length; i++){
+    //             if(arData.length[i].id === selUser){
+    //                 // console.log(selUser)
+    //                 arData.slice(i, 1);
+    //                 console.log(arData.slice(i, 1))
+    //                 return
+    //             } else{ console.log('error')}
+    //         }
+    //     }
+    // }
+
     
     render () {
         return (
