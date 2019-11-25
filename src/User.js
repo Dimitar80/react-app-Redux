@@ -32,6 +32,7 @@ class User extends React.Component {
             show: false,
             buttonText: "Expand",
             color : green,
+            
             // green : '#39D1B4',
             // yellow : '#FFD712'
             // isLoggedIn: false
@@ -73,6 +74,9 @@ class User extends React.Component {
     this.setState({ items: items });
     }
 
+    
+
+    
     render () {
         // const isLoggedIn = this.state.isLoggedIn;
         // let button;

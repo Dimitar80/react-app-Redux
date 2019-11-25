@@ -14,9 +14,69 @@ class Wrapper extends React.Component {
         this.state = {
             udata: [],
             error: null,
-            loading: false
+            loading: false,
+            showModal: null
+            // show: null
         }
     }
+
+    // addUser = () => {
+    //     this.setState({ showModal:
+    //         <div className='my-modal'>
+    //             <div className='form-container'>
+    //                 <div /*className='text-container'*/>Add new user</div>
+    //                 <input id='name' type='text' /*className='form-control'*/ placeholder='name' />
+    //                 <input id='username' type='text' /*className='form-control'*/ placeholder='username' />
+    //                 <input id='email' type='text' /*className='form-control'*/ placeholder='email' />
+    //                 <input id='address' type='text' /*className='form-control'*/ placeholder='address' />
+    //                 <button id='save' /*className='btn btn-success'*/
+    //                 onClick={() => this.saveUser()}>Save</button>
+    //                 <button id='close' /*className='btn btn-secondary'*/
+    //                 onClick={() => this.setState({ showModal: null })}>Close</button>
+    //             </div>
+    //         </div>
+    //     })
+    // }
+    addUser = () => {
+        let add = 
+        this.state.showModal === null ?
+            <div className='my-modal'>
+                <div className='form-container'>
+                    <div /*className='text-container'*/>Add new user</div>
+                    <input id='name' type='text' /*className='form-control'*/ placeholder='name' />
+                    <input id='username' type='text' /*className='form-control'*/ placeholder='username' />
+                    <input id='email' type='text' /*className='form-control'*/ placeholder='email' />
+                    <input id='streetAddress' type='text' 
+                    /*className='form-control'*/ placeholder='street address' 
+                    />
+                    <input id='suite' type='text' /*className='form-control'*/ placeholder='suite' />
+                    <button id='save' /*className='btn btn-success'*/
+                    onClick={() => this.saveUser()}>Save</button>
+                    <button id='close' /*className='btn btn-secondary'*/
+                    onClick={() => this.setState({ showModal: null })}>Close</button>
+                </div>
+            </div> : null;
+
+            this.setState({showModal : add})
+        }
+
+    // addUser = () => {
+    //     this.setState({ show:
+    //         <div className='myMod'>
+    //             <div className='pr'>
+    //                 <div className='anu'>Add new user</div>
+    //                 <input id='name' type='text' className='fc' placeholder='name' />
+    //                 <input id='username' type='text' className='fc' placeholder='username' />
+    //                 <input id='email' type='text' className='fc' placeholder='email' />
+    //                 <input id='address' type='text' className='fc' placeholder='address' />
+    //                 <button id='save' className='wftitle'
+    //                 onClick={() => this.saveUser()}>Save</button>
+    //                 <button id='close' /*className='btn btn-secondary'*/
+    //                 onClick={() => this.setState({ show: null })}>Close</button>
+    //             </div>
+    //         </div>
+    //     })
+    // }
 
 
     componentDidMount () {
@@ -55,14 +115,27 @@ class Wrapper extends React.Component {
     // }
 
     
+
+    
     render () {
         return (
             <React.Fragment>
                 <div>
                     <h1>Users</h1>
                 </div>
+
                 <table className="table">
+                {this.state.showModal}
                     <thead className="table-head">
+                    <tr>
+                        <th colspan = '7'>
+                            <button /*id='add'*/ id='adus' /*className='btn btn-success'*/
+                             onClick={this.addUser}
+                             >
+                                Add new user
+                            </button>
+                        </th>
+                    </tr>
                         <tr>
                             <th id='f'>Id</th>
                             <th id='s'>Name</th>
