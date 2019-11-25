@@ -25,8 +25,8 @@ class Clock extends React.Component {
       return (
         <p className="App-clock">
           The current date and time in 
-          <span style={{color: 'black'}} > {this.props.city + ', ' + this.props.country} </span>
-          is  {this.state.time}.
+          <span style={{color: 'lightgrey', fontFamily: 'Roboto, sans-serif'}} > {this.props.city + ', ' + this.props.country} </span>
+          is:  {this.state.time}.
         </p>
       );
     }

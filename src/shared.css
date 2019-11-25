@@ -92,15 +92,15 @@ li {
     }
 
     .table-ext thead th {
-        border: 1px solid;
-        border-color: red;
+        /* border: 1px solid; */
+        /* border-color: red; */
         padding: 15px;
         /* text-align: start; */
         text-align: center;
     }
     .table-ext .body-ext td {
         /* border: 1px solid; */
-        border-bottom: 1px solid red;
+        /* border-bottom: 1px solid red; */
         padding: 15px;
         /* text-align: start; */
         text-align: center;
@@ -135,12 +135,13 @@ li {
     }
 
  #f {
-    color: red;
+    color: white;
     width: 5%;
 }
 #s, #t, #fo, #fi, #si, #se {
-    color: red;
+    color: white;
     width: 19%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .table thead th {
@@ -181,8 +182,10 @@ li {
     font-size: 16px;
     font-weight: 700;
     background-color: orange;
+    border: orange;
     width: 50%;
     height: 30px;
+    cursor: pointer;
 }
 
 #adus{
@@ -190,8 +193,11 @@ li {
     font-size: 16px;
     font-weight: 700;
     background-color: teal;
+    border: teal;
+    border-radius: 10px;
     width: 30%;
     height: 30px;
+    cursor: pointer;
 }
 
 #refresh{
@@ -361,9 +367,10 @@ li {
 }
 
 .App-clock{
-    color: red;
+    color: white;
     font-size: 20px;
     font-weight: 700;
+    background-color: teal;
 }
 
 #err{

@@ -70,7 +70,7 @@ class User extends React.Component {
     //    }
     delraw = () => {
         alert('Button Clicked');
-        const items = this.state.udata.filter(item => item.id !== itemId);
+        const items = this.state.userdata.filter(item => item.id !== itemId);
     this.setState({ items: items });
     }
 
