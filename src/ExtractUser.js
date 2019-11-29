@@ -47,7 +47,7 @@ class ExtractUser extends React.Component {
                       </button>
                       <button className="primary-del-btn" id="create-btn" 
                       // onClick={() => this.props.del(this.props.id)} 
-                      onClick={this.props.del}>
+                      onClick={this.props.delete}>
                       <div className='txt' > Delete </div>
                       </button>
                       <button className="primary-close-btn" id="create-btn"  onClick={this.props.close}>

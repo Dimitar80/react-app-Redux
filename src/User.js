@@ -79,7 +79,7 @@ class User extends React.Component {
                     street={this.props.street}
                     suite={this.props.suite}
                     close={this.showOrHide}
-                    del={this.props.del}
+                    delete={this.props.del}
                     />
                     }
 

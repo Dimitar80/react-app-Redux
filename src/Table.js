@@ -16,26 +16,29 @@ class Wrapper extends React.Component {
             error: null,
             loading: false,
             showModal: null,
-            show: false
+            show: false,
+            // newData: []
             // show: null
         }
     }
 
     delraw = (itemId) => {
-        // alert('Button Clicked');
-        const itemsoff = this.state.udata.filter(user => user.id !== itemId);
-    this.setState({ udata: itemsoff });
+        alert('Button Clicked');
+        const itemsoff = this.state.newData.filter((user) => {user.id !== itemId});
+        // console.log(itemId)
+        console.log(itemsoff)
+    this.setState({ newData: itemsoff });
+    console.log(this.state.newData)
     }
-
 
     componentDidMount () {
         this.setState({ loading: true })
         // console.log(loading)
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then((response) => {
-            // this.setState({ newData: response.data })  
-                // console.log(this.state.newData)           
-                const users = response.data.map((user) => {
+            this.setState({ newData: response.data })  
+                console.log(this.state.newData)           
+                const users = this.state.newData.map((user) => {
                     return (<User      
                           key={user.id} /*expandForm={this.expandForm} 
                         expandAddress={this.expandAddress}*/ 
