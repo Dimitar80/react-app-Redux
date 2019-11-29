@@ -8,7 +8,7 @@ import User from './User'
 import AddNewUser from './AddNewUser'
 
 //HOC//
-class Wrapper extends React.Component {
+class Table extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
@@ -17,31 +17,65 @@ class Wrapper extends React.Component {
             loading: false,
             showModal: null,
             show: false,
-            // newData: []
+            // newData: a 
             // show: null
         }
     }
+    // remove = (rowId) => {
+    //     // Array.prototype.filter returns new array
+    //     // so we aren't mutating state here
+    //     const arrayCopy = this.state.data.filter((row) => row.id !== rowId);
+    //     this.setState({data: arrayCopy});
+    //   };
 
     delrow = (itemId) => {
-        alert('Button Clicked');
-        const itemsoff = this.state.newData.filter((user) => {user.id !== itemId});
+        alert('Button Clicked' + this.user.id);
+        const itemsoff = this.state.udata.filter((user) => user.id !== itemId);
         // console.log(itemId)
         console.log(itemsoff)
-    this.setState({ newData: itemsoff });
-    console.log(this.state.newData)
+    this.setState({ udata: itemsoff });
+    console.log(this.state.udata)
     }
 
+    // delrow = (itemId) => {
+    //     alert('Button Clicked');
+    //     const itemsoff = this.state.newData.filter((user) => user.id !== itemId);
+    //     // console.log(itemId)
+    //     console.log(itemsoff)
+    // this.setState({ newData: itemsoff });
+    // console.log(this.state.newData)
+    // }
+
+    // delrow = () => {
+    //     alert('Button Clicked');
+    //     const itemsoff = this.state.newData.filter(function(user){
+    //         return user.id !== user.Id;
+    //     });
+    //     // console.log(user)
+    //     console.log(itemsoff)
+    // this.setState({ newData: itemsoff });
+    // console.log(this.state.newData)
+    // }
+
+//     var numbers = [1, 3, 6, 8, 11];
+
+// var lucky = numbers.filter(function(number) {
+//   return number > 7;
+// });
+
+// [ 8, 11 ]
+
     componentDidMount () {
-        this.setState({ loading: true })
+        // this.setState({ loading: true })
         // console.log(loading)
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then((response) => {
             this.setState({ newData: response.data })  
-                console.log(this.state.newData)           
+            // const a = response.data
+                // console.log(this.state.newData)           
                 const users = this.state.newData.map((user) => {
                     return (<User      
-                          key={user.id} /*expandForm={this.expandForm} 
-                        expandAddress={this.expandAddress}*/ 
+                          key={user.id} 
                           id={user.id}
                           name={user.name}
                           username={user.username}
@@ -89,6 +123,15 @@ class Wrapper extends React.Component {
                     {/* AddNewUser Form-start  */}
                     {this.state.show && <AddNewUser  opcl={this.OpCl} />}
                     {/* AddNewUser Form-end  */}
+                    <tr id='hds'>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Address-street</th>
+                        <th>Address-suite</th>
+                        <th>Edit</th>
+                    </tr>
                     </thead>
 
                     <tbody className="table-body">
@@ -134,4 +177,4 @@ class Wrapper extends React.Component {
     }
 }
 
-export default Wrapper
+export default Table
