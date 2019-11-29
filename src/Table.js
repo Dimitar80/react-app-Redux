@@ -22,7 +22,7 @@ class Wrapper extends React.Component {
         }
     }
 
-    delraw = (itemId) => {
+    delrow = (itemId) => {
         alert('Button Clicked');
         const itemsoff = this.state.newData.filter((user) => {user.id !== itemId});
         // console.log(itemId)
@@ -49,7 +49,7 @@ class Wrapper extends React.Component {
                           street={user.address.street}
                           suite={user.address.suite}
                         //   ex={props.showOrHide}
-                          del={this.delraw} />
+                          del={this.delrow} />
                         )
                     })
                     this.setState({ udata: users })
