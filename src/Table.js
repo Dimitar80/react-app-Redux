@@ -27,10 +27,6 @@ class Wrapper extends React.Component {
     this.setState({ udata: itemsoff });
     }
 
-    // handleDelete = itemId => {
-    //     const items = this.state.items.filter(item => item.id !== itemId);
-    //     this.setState({ items: items });
-    //   };
 
     componentDidMount () {
         this.setState({ loading: true })
