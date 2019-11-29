@@ -28,6 +28,7 @@ class Table extends React.Component {
     //     this.setState({data: arrayCopy});
     //   };
 
+     // TESTIS //
     delrow = (itemId) => {
         alert('Button Clicked' + this.user.id);
         const itemsoff = this.state.udata.filter((user) => user.id !== itemId);
