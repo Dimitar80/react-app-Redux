@@ -7,7 +7,7 @@ import User from './User'
 // import ExtractUser from './ExtractUser'
 import AddNewUser from './AddNewUser'
 
-//HOC//
+
 class Table extends React.Component {
     constructor (props) {
         super(props)
