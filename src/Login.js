@@ -41,7 +41,11 @@ class Login extends React.Component {
 
     render () {
         return <React.Fragment>
+            <div className='backgCol'>
+                    <h1>Login page - React/Redux test</h1>
+                </div>
             <Alert />
+            
             <input id='username'
                 placeholder='Username'
                 onChange={this.checkInput}

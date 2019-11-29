@@ -5,16 +5,20 @@ import store from './redux/store.js'
 import Menu from './Menu'
 import TestMenu from './TestMenu'
 import MenuChLi from './MenuChLi'
-import Wrapper from './Wrapper'
+import WrapperHOC from './WrapperHOC'
 import UsersList from './UsersList'
+import User from './User'
 // import WeatherList from './WeatherList'
 import Home from './Home'
 import Login from './Login'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import './shared.css'
 import WForecastA from './WForecastA'
-import WForecast from './WForecast'
-import WForecastTest from './WForecastTest'
+import UsersListCls from './UsersListCls.js'
+import Table from './Table'
+// import UsersListCls from './UsersListCls.js'
+// import WForecast from './WForecast'
+// import WForecastTest from './WForecastTest'
 
 
 
@@ -23,11 +27,19 @@ import WForecastTest from './WForecastTest'
 
 
 const About = () => {
-    return (<h1>Welcome to my about page!</h1>)
+    return (
+    <div className='backgCol'>
+        <h1>Welcome to my about page!</h1>
+        </div>
+        )
 }
 
 const Contact = () => {
-    return (<h1>Welcome to my contact page!</h1>)
+    return (
+    <div className='backgCol'>
+    <h1>Welcome to my contact page!</h1>
+        </div>
+        )
 }
 
 const Routes = () => {
@@ -39,17 +51,16 @@ const Routes = () => {
                 <Route exact path='/about' component={About} />
                 <Route exact path='/contact' component={Contact} />
                 <Route exact path='/login' component={Login} />
-                <Route
+                {/* <Route
                     exact
                     path='/user'
                     render={ () =>
-                        <Wrapper
-                            component={UsersList}
-                            methodType='GET'
-                            url='https://jsonplaceholder.typicode.com/users'
+                        <Table
+                            // component={UsersList}
                         />
                     }
-                />
+                /> */}
+                <Route exact path='/user' component={Table} />
                 <Route exact path='/weather' component={WForecastA} />
                 {/* <Route
                     exact

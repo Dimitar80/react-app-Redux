@@ -7,9 +7,13 @@ html, body {
 }
 
 h1 {
-    color: red;
     display: flex;
     justify-content: center;
+    color: teal;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    margin: 0px;
+    
 }
 
 #l  {
@@ -193,10 +197,11 @@ li {
     font-size: 16px;
     font-weight: 700;
     background-color: teal;
-    border: teal;
+    border: 2px solid silver;
     border-radius: 10px;
     width: 30%;
     height: 30px;
+    /* left: 50%; */
     cursor: pointer;
 }
 
@@ -291,8 +296,8 @@ li {
 #wftitle{
     font-family: 'Roboto', sans-serif;
     color: teal;
-    font-weight: 900;
-    background-color: rgba(128, 128, 128, 0.021);
+    font-weight: 800;
+    /* background-color: rgba(133, 133, 133, 0.021); */
     text-align: center;
     margin-top: 0;
     margin-bottom: 0;
@@ -418,6 +423,21 @@ li {
    height: 200px;
    border-radius: 20px;
    background-color: orange;
+}
+
+.backgCol{
+   background-color: rgb(207, 201, 201);
+   height: 80px;
+   margin: 0px;
+   display: flex;
+   /* align-content: center; */
+   align-items: center;
+   justify-content: center;
+}
+
+#hd {
+    background-color: grey;
+    height: 40px;
 }
 
 
