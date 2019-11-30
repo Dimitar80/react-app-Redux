@@ -30,7 +30,7 @@ class Table extends React.Component {
 
      // TESTIS //
     delrow = (itemId) => {
-        alert('Button Clicked' + this.user.id);
+        alert('Button Clicked' /*+ this.user.id*/);
         const itemsoff = this.state.udata.filter((user) => user.id !== itemId);
         // console.log(itemId)
         console.log(itemsoff)
