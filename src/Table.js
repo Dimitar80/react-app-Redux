@@ -63,7 +63,6 @@ class Table extends React.Component {
 // var lucky = numbers.filter(function(number) {
 //   return number > 7;
 // });
-
 // [ 8, 11 ]
 
     componentDidMount () {
