@@ -30,7 +30,7 @@ class Table extends React.Component {
 
      // TESTIS //
     delrow = (itemId) => {
-        alert('Button Clicked' + this.user.id);
+        alert('Button Clicked' /*+ this.user.id*/);
         const itemsoff = this.state.udata.filter((user) => user.id !== itemId);
         // console.log(itemId)
         console.log(itemsoff)
@@ -63,7 +63,6 @@ class Table extends React.Component {
 // var lucky = numbers.filter(function(number) {
 //   return number > 7;
 // });
-
 // [ 8, 11 ]
 
     componentDidMount () {
