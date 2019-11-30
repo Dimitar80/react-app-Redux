@@ -5,8 +5,9 @@ import store from './redux/store.js'
 import Menu from './Menu'
 import TestMenu from './TestMenu'
 import MenuChLi from './MenuChLi'
-import Wrapper from './Wrapper'
+import WrapperHOC from './WrapperHOC'
 import UsersList from './UsersList'
+import User from './User'
 // import WeatherList from './WeatherList'
 import Home from './Home'
 import Login from './Login'
@@ -48,17 +49,16 @@ const Routes = () => {
                 <Route exact path='/about' component={About} />
                 <Route exact path='/contact' component={Contact} />
                 <Route exact path='/login' component={Login} />
-                <Route
+                {/* <Route
                     exact
                     path='/user'
                     render={ () =>
-                        <Wrapper
-                            component={UsersList}
-                            methodType='GET'
-                            url='https://jsonplaceholder.typicode.com/users'
+                        <Table
+                            // component={UsersList}
                         />
                     }
-                />
+                /> */}
+                <Route exact path='/user' component={Table} />
                 <Route exact path='/weather' component={WForecastA} />
                 {/* <Route
                     exact

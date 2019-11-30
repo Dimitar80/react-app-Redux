@@ -11,18 +11,6 @@ class ExtractUser extends React.Component {
         }
     }
 
-
-    // showOrHide = (event) => {
-    //     console.log(event.target.id)
-    //     /* menuvanje na state so setState() metoda
-    //     otkako state-ot kje se smeni,
-    //     komponentata si go vika svojot render metod odnovo
-    //     (ASINHRONA E, PAZETE! noviot state moze da go procitate
-    //         samo vo render i so callback) */
-    //     this.setState({ show: !this.state.show });
-    //     console.log("Button clicked...")
-    // }
-
     render () {
         return (
             <React.Fragment>
@@ -66,8 +54,9 @@ class ExtractUser extends React.Component {
                             Close
                             </button>
                     </div>
-                </div>
-            </React.Fragment>
+                    </div>
+                    </React.Fragment>
+           
         )
     }
 }

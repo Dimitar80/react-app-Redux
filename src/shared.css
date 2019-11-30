@@ -197,7 +197,7 @@ li {
     font-size: 16px;
     font-weight: 700;
     background-color: teal;
-    border: teal;
+    border: 2px solid silver;
     border-radius: 10px;
     width: 30%;
     height: 30px;

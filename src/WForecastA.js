@@ -15,16 +15,6 @@ import ReactTooltip from 'react-tooltip'
 import ExtForErr from './ExtForErr'
 
 
-
-// let time = new Date().toLocaleString();
-// let currentdate = new Date(); 
-//     let datetime = currentdate.getDate() + "/"
-//                 + (currentdate.getMonth()+1)  + "/" 
-//                 + currentdate.getFullYear() + ", "  
-//                 + currentdate.getHours() + ":"  
-//                 + currentdate.getMinutes() + ':'
-//                 + currentdate.getSeconds()
-
 class WForecastA extends React.Component {
     constructor (props) {
         super(props)
@@ -250,23 +240,9 @@ class WForecastA extends React.Component {
                         />
                       }
                    
-                    {/* {  
-                        !this.state.wdata
-                        ? < EnterCity />
-                        : this.state.wdata && <CurrForecast 
-                   temperature={this.state.wdata.main.temp}
-                          wind={this.state.wdata.wind.speed}
-                    cloudiness={this.state.wdata.clouds.all}
-                      pressure={this.state.wdata.main.pressure}
-                      humidity={this.state.wdata.main.humidity}
-                       sunrise={this.state.wdata.sys.sunrise}
-                        sunset={this.state.wdata.sys.sunset} 
-                         />
-                    } */}
-
-                    
                     </tbody>
                 </table>
+
                 </div>
                 <div id='extfield'>
                 <h2 id ='secExt' className='wfcwf'> {/*Show Extended Weather Forecast in:*/}
@@ -283,9 +259,9 @@ class WForecastA extends React.Component {
                   </button> 
                 </div>
                     
-                    {  
+                    {  // SO MAP Sredi go ovoj DRY code //
                     this.state.wdataex && this.state.show &&  <ExtForecastSec 
-                            // SO MAP Sredi go ovoj DRY code //
+                            
                              time={this.state.wdataex.list[0].dt_txt}
                       temperature={this.state.wdataex.list[0].main.temp}
                              wind={this.state.wdataex.list[0].wind.speed}

@@ -4,22 +4,6 @@ import './style.css'
 import './shared.css'
 import ExtractUser from './ExtractUser'
 
-// function ExpandButton(props) {
-//     return (
-//       <button onClick={props.onClick}>
-//         Expand
-//       </button>
-//     );
-//   }
-  
-//   function CancelButton(props) {
-//     return (
-//       <button onClick={props.onClick}>
-//         Cancel
-//       </button>
-//     );
-//   }
-
 
   const green = '#39D1B4';
   const yellow = '#FFD712';
@@ -30,12 +14,8 @@ class User extends React.Component {
         /* Initial state */
         this.state = {
             show: false,
-            buttonText: "Expand",
-            color : green,
+            expText: "Expand",
             
-            // green : '#39D1B4',
-            // yellow : '#FFD712'
-            // isLoggedIn: false
        }
     }   
 
@@ -50,10 +30,7 @@ class User extends React.Component {
         this.setState({ show: !this.state.show });
         console.log("Button clicked...")
         let buttonText = this.state.buttonText === "Expand" ? "Cancel" : "Expand"
-        this.setState({buttonText: buttonText});
-        
-        // let newColor = this.state.color === green ? yellow : green
-        // this.setState({color: newColor});
+        this.setState({epxText: buttonText});
     }
 
     // delete = (props) => {
@@ -75,18 +52,13 @@ class User extends React.Component {
     this.setState({ items: itemsoff });
     }
 
-    
+    // delraw = (itemId) => {
+    //     alert('Button Clicked');
+    //     const itemsoff = this.props.data.filter(item => item.id !== itemId);
+    // this.setState({ items: itemsoff });
+    // }
 
-    
     render () {
-        // const isLoggedIn = this.state.isLoggedIn;
-        // let button;
-    
-        // if (isLoggedIn) {
-        //   button = <CancelButton onClick={this.handleCancelClick} />;
-        // } else {
-        //   button = <ExpandButton onClick={this.handleExpandClick} />;
-        // }
         return (
             <React.Fragment>
                     
@@ -98,10 +70,8 @@ class User extends React.Component {
                     <td>{this.props.street}</td>
                     <td>{this.props.suite}</td>
                     <td>
-                        <button id='toggle' /*onClick={this.handleClick}*/ 
-                        onClick={this.showOrHide} /*style={{backgroundColor:this.state.newColor}}*/>
-                        {this.state.buttonText}
-                        {/* {this.state.newColor}  */}
+                        <button id='toggle'  onClick={this.showOrHide}>
+                        {this.state.expText}
                         </button>
                     </td>
                     </tr>
@@ -114,8 +84,8 @@ class User extends React.Component {
                     email={this.props.email}
                     street={this.props.street}
                     suite={this.props.suite}
-                    ex={this.showOrHide}
-                    del={this.delraw}
+                    close={this.showOrHide}
+                    delete={this.props.del}
                     />
                     }
 

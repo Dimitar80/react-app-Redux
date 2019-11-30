@@ -2,6 +2,11 @@ import React from 'react'
 import User from './User'
 
 
+// delrow = (itemId) => {
+//     alert('Button Clicked');
+//     const itemsoff = this.state.data.filter(item => item.id !== itemId);
+// this.setState({ items: itemsoff });
+// }
 
 
 
@@ -38,12 +43,11 @@ const UsersList = (props) => {
             street={element.address.street}
             suite={element.address.suite}
             ex={props.showOrHide}
-            del={props.delraw}
+            del={props.delrow}
+            // del={(itemid)=> (alert('btn')) }
         />
     })
 }
-
-
 
 export default UsersList
 
