@@ -6,6 +6,7 @@ import './shared.css'
 // import User from './User'
 // import UserList from './UsersList'
 // import ExtractUser from './ExtractUser'
+import AddNewUser from './AddNewUser'
 
 //HOC//
 class Wrapper extends React.Component {
@@ -15,7 +16,8 @@ class Wrapper extends React.Component {
             udata: [],
             error: null,
             loading: false,
-            showModal: null
+            showModal: null,
+            show: false
             // show: null
         }
     }
@@ -37,28 +39,30 @@ class Wrapper extends React.Component {
     //         </div>
     //     })
     // }
-    addUser = () => {
-        let add = 
-        this.state.showModal === null ?
-            <div className='my-modal'>
-                <div className='form-container'>
-                    <div /*className='text-container'*/>Add new user</div>
-                    <input id='name' type='text' /*className='form-control'*/ placeholder='name' />
-                    <input id='username' type='text' /*className='form-control'*/ placeholder='username' />
-                    <input id='email' type='text' /*className='form-control'*/ placeholder='email' />
-                    <input id='streetAddress' type='text' 
-                    /*className='form-control'*/ placeholder='street address' 
-                    />
-                    <input id='suite' type='text' /*className='form-control'*/ placeholder='suite' />
-                    <button id='save' /*className='btn btn-success'*/
-                    onClick={() => this.saveUser()}>Save</button>
-                    <button id='close' /*className='btn btn-secondary'*/
-                    onClick={() => this.setState({ showModal: null })}>Close</button>
-                </div>
-            </div> : null;
 
-            this.setState({showModal : add})
-        }
+    // // OVA //
+    // addUser = () => {
+    //     let add = 
+    //     this.state.showModal === null ?
+    //         <div className='my-modal'>
+    //             <div className='form-container'>
+    //                 <div /*className='text-container'*/>Add new user</div>
+    //                 <input id='name' type='text' /*className='form-control'*/ placeholder='name' />
+    //                 <input id='username' type='text' /*className='form-control'*/ placeholder='username' />
+    //                 <input id='email' type='text' /*className='form-control'*/ placeholder='email' />
+    //                 <input id='streetAddress' type='text' 
+    //                 /*className='form-control'*/ placeholder='street address' 
+    //                 />
+    //                 <input id='suite' type='text' /*className='form-control'*/ placeholder='suite' />
+    //                 <button id='save' /*className='btn btn-success'*/
+    //                 onClick={() => this.saveUser()}>Save</button>
+    //                 <button id='close' /*className='btn btn-secondary'*/
+    //                 onClick={() => this.setState({ showModal: null })}>Close</button>
+    //             </div>
+    //         </div> : null;
+
+    //         this.setState({showModal : add})
+    //     }
 
     // addUser = () => {
     //     this.setState({ show:
@@ -113,29 +117,30 @@ class Wrapper extends React.Component {
     //         }
     //     }
     // }
-
+    OpCl = () => {
+        this.setState({ show: !this.state.show });
+    }
     
 
     
     render () {
         return (
             <React.Fragment>
-                <div>
+                <div className='backgCol'>
                     <h1>Users</h1>
                 </div>
 
                 <table className="table">
-                {this.state.showModal}
+                {/* {this.state.showModal} */}
                     <thead className="table-head">
                     <tr>
-                        <th colspan = '7'>
-                            <button /*id='add'*/ id='adus' /*className='btn btn-success'*/
-                             onClick={this.addUser}
-                             >
-                                Add new user
+                        <th colSpan = '7'>
+                            <button id='adus' onClick={this.OpCl}> 
+                            Add new user
                             </button>
                         </th>
                     </tr>
+                    {this.state.show && <AddNewUser  opcl={this.OpCl} />}
                         <tr>
                             <th id='f'>Id</th>
                             <th id='s'>Name</th>

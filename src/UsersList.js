@@ -17,9 +17,17 @@ import User from './User'
 //          }
 //      }
 //        }
+
+// delraw = (itemId) => {
+//     alert('Button Clicked');
+//     const itemsoff = this.state.data.filter(item => item.id !== itemId);
+// this.setState({ items: itemsoff });
+// }
+
+
 const UsersList = (props) => {
     return props.data.map((element) => {
-        console.log(props.data)
+        // console.log(props.data)
         console.log(element)
         return <User
             key={element.id}

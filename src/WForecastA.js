@@ -48,6 +48,7 @@ class WForecastA extends React.Component {
         }
     }
 
+    // Close on message //
     CloseBtn = (event) => {
         console.log(event.target.id)
         this.setState({ error: null });

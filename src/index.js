@@ -13,8 +13,9 @@ import Login from './Login'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import './shared.css'
 import WForecastA from './WForecastA'
-import WForecast from './WForecast'
-import WForecastTest from './WForecastTest'
+// import UsersListCls from './UsersListCls.js'
+// import WForecast from './WForecast'
+// import WForecastTest from './WForecastTest'
 
 
 
@@ -23,11 +24,19 @@ import WForecastTest from './WForecastTest'
 
 
 const About = () => {
-    return (<h1>Welcome to my about page!</h1>)
+    return (
+    <div className='backgCol'>
+        <h1>Welcome to my about page!</h1>
+        </div>
+        )
 }
 
 const Contact = () => {
-    return (<h1>Welcome to my contact page!</h1>)
+    return (
+    <div className='backgCol'>
+    <h1>Welcome to my contact page!</h1>
+        </div>
+        )
 }
 
 const Routes = () => {

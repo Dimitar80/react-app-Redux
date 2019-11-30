@@ -7,7 +7,7 @@ class ExtractUser extends React.Component {
         super(/*props*/)
         /*Initial State*/ 
         this.state = {
-            show: false
+            // show: false
         }
     }
 
@@ -54,14 +54,15 @@ class ExtractUser extends React.Component {
                                 <input type='text' className="text-field-input" defaultValue={this.props.suite}></input>
                             </p>
                         </form>
-                            <button className="primary-button long" id="create-btn" >
-                            Save
+                            <button className="primary-save-btn" id="create-btn" >
+                            <div className='txt' >Save/Send</div>
                             </button>
-                            <button className="primary-button long" id="create-btn" 
-                            onClick={() => this.props.del(this.props.id)}>
-                            Delete
+                            <button className="primary-del-btn" id="create-btn" 
+                            // onClick={() => this.props.del(this.props.id)} 
+                            onClick={this.props.del}>
+                            <div className='txt' > Delete </div>
                             </button>
-                            <button className="primary-button long" id="create-btn"  onClick={this.props.ex}>
+                            <button className="primary-close-btn" id="create-btn"  onClick={this.props.ex}>
                             Close
                             </button>
                     </div>
