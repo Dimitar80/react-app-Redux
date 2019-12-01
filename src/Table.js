@@ -47,7 +47,7 @@ class Table extends React.Component {
 // });
 // [ 8, 11 ]
      
-
+// POLUDEKJU //
     delrow = (itemId) => {
         alert('Button Clicked');
         // console.log(this.state.newData)
