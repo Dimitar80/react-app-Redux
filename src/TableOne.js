@@ -8,7 +8,7 @@ import User from './User'
 import AddNewUser from './AddNewUser'
 
 
-class Table extends React.Component {
+class TableOne extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
@@ -60,29 +60,16 @@ class Table extends React.Component {
     // // console.log(this.state.newData)
     // }
     delrow = (itemId) => {
-        console.log(event.target.id)
         alert('Button Clicked');
         // console.log(this.state.newData)
-        const rowoff = data.filter((user) => user.id !== itemId);
+        const rowoff = this.state.udata.filter((user) => user.id !== itemId);
+        console.log(this.state.udata)
         // console.log(itemId)
         // console.log(user.id)
         // console.log(itemsoff)
     this.setState({ udata: rowoff });
     console.log(rowoff)
     // console.log(this.state.newData)
-    }
-
-    showOrHide = (event) => {
-        console.log(event.target.id)
-        /* menuvanje na state so setState() metoda
-        otkako state-ot kje se smeni,
-        komponentata si go vika svojot render metod odnovo
-        (ASINHRONA E, PAZETE! noviot state moze da go procitate
-            samo vo render i so callback) */
-        this.setState({ show: !this.state.show });
-        console.log("Button clicked...")
-        let buttonText = this.state.buttonText === "Expand" ? "Cancel" : "Expand"
-        this.setState({epxText: buttonText});
     }
     
 
@@ -93,11 +80,8 @@ class Table extends React.Component {
         // console.log(loading)
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then((response) => {
-            // this.setState({ newData: response.data })  
-            //     console.log(this.state.newData) 
-            // this.state.newData 
-               let data = response.data         
-                const users = data.map((user) => {
+            // var c = response.data
+                   const users = response.data.map((user) => {
                     return (<User      
                           key={user.id} 
                           id={user.id}
@@ -162,34 +146,6 @@ class Table extends React.Component {
                     {/* <this.props.component data={this.state.udata} /> */}
                     {this.state.udata}
 
-                    {/* {this.state.udata &&
-                            <User
-                               key={this.state.wdata.id}
-                               id={this.state.wdata.id}
-                               name={this.state.wdata.name}
-                               username={this.state.wdata.username}
-                               email={this.state.wdata.email}
-                               street={this.state.wdata.address.street}
-                               suite={this.state.wdata.address.suite}
-                               ex={props.showOrHide}
-                               del={this.delrow}
-                            />
-                        } */}
-
-                    {/* {this.state.udata.map((item) => {
-                         return <User
-                               key={item.id}
-                               id={item.id}
-                               name={item.name}
-                               username={item.username}
-                               email={item.email}
-                               street={item.address.street}
-                               suite={item.address.suite}
-                               ex={props.showOrHide}
-                               del={this.delrow}
-                            />
-                        })} */}
-
                    {this.state.error}
                    {this.state.loading && <h1 
                    style={{color: "red", fontSize: "20px", textAlign: 'center'}}>LOADING...</h1>}
@@ -201,4 +157,4 @@ class Table extends React.Component {
     }
 }
 
-export default Table
+export default TableOne

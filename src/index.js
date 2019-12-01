@@ -15,6 +15,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import './shared.css'
 import WForecastA from './WForecastA'
 import Table from './Table'
+import TableOne from './TableOne'
 // import UsersListCls from './UsersListCls.js'
 // import WForecast from './WForecast'
 // import WForecastTest from './WForecastTest'
@@ -59,7 +60,7 @@ const Routes = () => {
                         />
                     }
                 /> */}
-                <Route exact path='/user' component={Table} />
+                <Route exact path='/user' component={TableOne} />
                 <Route exact path='/weather' component={WForecastA} />
                 {/* <Route
                     exact
