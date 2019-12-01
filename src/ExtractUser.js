@@ -42,15 +42,15 @@ class ExtractUser extends React.Component {
                                 <input type='text' className="text-field-input" defaultValue={this.props.suite}></input>
                             </p>
                         </form>
-                            <button className="primary-save-btn" id="create-btn" >
+                            <button className="primary-save-btn" id="s-btn" >
                             <div className='txt' >Save/Send</div>
                             </button>
-                            <button className="primary-del-btn" id="create-btn" 
+                            <button className="primary-del-btn" id="del-btn" 
                             // onClick={() => this.props.del(this.props.id)} 
                             onClick={this.props.delete}>
                             <div className='txt' > Delete </div>
                             </button>
-                            <button className="primary-close-btn" id="create-btn"  
+                            <button className="primary-close-btn" id="cl-btn"  
                             onClick={this.props.close}>
                             Close
                             </button>

@@ -56,8 +56,8 @@ class Table extends React.Component {
         // console.log(user.id)
         // console.log(itemsoff)
     this.setState({ newData: rowoff });
-    // console.log(rowoff)
-    // console.log(this.state.newData)
+    console.log(rowoff)
+    console.log(this.state.newData)
     }
 
     
@@ -69,10 +69,10 @@ class Table extends React.Component {
         // console.log(loading)
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then((response) => {
-            // this.setState({ newData: response.data })  
+            this.setState({ newData: response.data })  
             // const a = response.data
                 // console.log(this.state.newData)           
-                const users = response.data.map((user) => {
+                const users = this.state.newData.map((user) => {
                     return (<User      
                           key={user.id} 
                           id={user.id}
@@ -147,7 +147,7 @@ class Table extends React.Component {
                                street={this.state.wdata.address.street}
                                suite={this.state.wdata.address.suite}
                                ex={props.showOrHide}
-                               del={this.delraw}
+                               del={this.delrow}
                             />
                         } */}
 
@@ -161,7 +161,7 @@ class Table extends React.Component {
                                street={item.address.street}
                                suite={item.address.suite}
                                ex={props.showOrHide}
-                               del={this.delraw}
+                               del={this.delrow}
                             />
                         })} */}
 
