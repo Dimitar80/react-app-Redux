@@ -56,8 +56,8 @@ class Table extends React.Component {
         // console.log(user.id)
         // console.log(itemsoff)
     this.setState({ newData: rowoff });
-    console.log(rowoff)
-    console.log(this.state.newData)
+    // console.log(rowoff)
+    // console.log(this.state.newData)
     }
 
     
@@ -69,10 +69,10 @@ class Table extends React.Component {
         // console.log(loading)
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then((response) => {
-            this.setState({ newData: response.data })  
+            // this.setState({ newData: response.data })  
             // const a = response.data
                 // console.log(this.state.newData)           
-                const users = this.state.newData.map((user) => {
+                const users = response.data.map((user) => {
                     return (<User      
                           key={user.id} 
                           id={user.id}
@@ -85,8 +85,8 @@ class Table extends React.Component {
                           del={this.delrow} />
                         )
                     })
-                    this.setState({ udata: users })
-                    console.log(this.state.udata)
+                    this.setState({ newData: users })
+                    console.log(this.state.newData)
                 })
         .catch((error) => {
             console.log(error)
@@ -135,7 +135,7 @@ class Table extends React.Component {
 
                     <tbody className="table-body">
                     {/* <this.props.component data={this.state.udata} /> */}
-                    {this.state.udata}
+                    {this.state.newData}
 
                     {/* {this.state.udata &&
                             <User
