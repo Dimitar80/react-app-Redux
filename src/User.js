@@ -52,11 +52,7 @@ class User extends React.Component {
     // this.setState({ items: itemsoff });
     // }
 
-    // delraw = (itemId) => {
-    //     alert('Button Clicked');
-    //     const itemsoff = this.props.data.filter(item => item.id !== itemId);
-    // this.setState({ items: itemsoff });
-    // }
+    
 
     render () {
         return (

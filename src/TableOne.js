@@ -23,25 +23,9 @@ class TableOne extends React.Component {
             
         }
     }
-//     remove = (rowId) => {
-//     // Array.prototype.filter returns new arrayc
-//     // so we aren't mutating state here
-//     const arrayCopy = this.state.newData.filter((row) => row.id !== rowId);
-//     this.setState({data: arrayCopy});
-//   };
-     // delrow = () => {
-    //     alert('Button Clicked');
-    //     const itemsoff = this.state.newData.filter(function(user){
-    //         return user.id !== user.Id;
-    //     });
-    //     // console.log(user)
-    //     console.log(itemsoff)
-    // this.setState({ newData: itemsoff });
-    // console.log(this.state.newData)
-    // }
 
+    
 //     var numbers = [1, 3, 6, 8, 11];
-
 // var lucky = numbers.filter(function(number) {
 //   return number > 7;
 // });
@@ -61,7 +45,7 @@ class TableOne extends React.Component {
     // }
     delrow = (itemId) => {
         alert('Button Clicked');
-        // console.log(this.state.newData)
+        console.log(c)
         const rowoff = this.state.udata.filter((user) => user.id !== itemId);
         console.log(this.state.udata)
         // console.log(itemId)
@@ -80,8 +64,8 @@ class TableOne extends React.Component {
         // console.log(loading)
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then((response) => {
-            // var c = response.data
-                   const users = response.data.map((user) => {
+            var c = response.data
+                   const users = /*response.data*/c.map((user) => {
                     return (<User      
                           key={user.id} 
                           id={user.id}
@@ -145,7 +129,7 @@ class TableOne extends React.Component {
                     <tbody className="table-body">
                     {/* <this.props.component data={this.state.udata} /> */}
                     {this.state.udata}
-
+                   
                    {this.state.error}
                    {this.state.loading && <h1 
                    style={{color: "red", fontSize: "20px", textAlign: 'center'}}>LOADING...</h1>}
