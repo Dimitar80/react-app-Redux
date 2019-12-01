@@ -17,37 +17,19 @@ class Table extends React.Component {
             loading: false,
             showModal: null,
             show: false,
+            newData: []
             // newData: a 
             // show: null
+            
         }
     }
-    // remove = (rowId) => {
-    //     // Array.prototype.filter returns new array
-    //     // so we aren't mutating state here
-    //     const arrayCopy = this.state.data.filter((row) => row.id !== rowId);
-    //     this.setState({data: arrayCopy});
-    //   };
-
-     // TESTIS //
-    delrow = (itemId) => {
-        alert('Button Clicked' /*+ this.user.id*/);
-        const itemsoff = this.state.udata.filter((user) => user.id !== itemId);
-        // console.log(itemId)
-        console.log(itemsoff)
-    this.setState({ udata: itemsoff });
-    console.log(this.state.udata)
-    }
-
-    // delrow = (itemId) => {
-    //     alert('Button Clicked');
-    //     const itemsoff = this.state.newData.filter((user) => user.id !== itemId);
-    //     // console.log(itemId)
-    //     console.log(itemsoff)
-    // this.setState({ newData: itemsoff });
-    // console.log(this.state.newData)
-    // }
-
-    // delrow = () => {
+    remove = (rowId) => {
+    // Array.prototype.filter returns new arrayc
+    // so we aren't mutating state here
+    const arrayCopy = this.state.data.filter((row) => row.id !== rowId);
+    this.setState({data: arrayCopy});
+  };
+     // delrow = () => {
     //     alert('Button Clicked');
     //     const itemsoff = this.state.newData.filter(function(user){
     //         return user.id !== user.Id;
@@ -64,6 +46,23 @@ class Table extends React.Component {
 //   return number > 7;
 // });
 // [ 8, 11 ]
+     
+
+    delrow = (itemId) => {
+        alert('Button Clicked');
+        // console.log(this.state.newData)
+        const rowoff = this.state.newData.filter((user) => user.id !== itemId);
+        // console.log(itemId)
+        // console.log(user.id)
+        // console.log(itemsoff)
+    this.setState({ newData: rowoff });
+    console.log(rowoff)
+    console.log(this.state.newData)
+    }
+
+    
+
+   
 
     componentDidMount () {
         // this.setState({ loading: true })
