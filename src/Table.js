@@ -61,15 +61,45 @@ class Table extends React.Component {
     // }
     delrow = (itemId) => {
         alert('Button Clicked');
-        console.log(this.state.newData)
-        const rowoff = this.state.newData.filter((user) => user.id !== itemId);
-        console.log(rowoff)
-        // console.log(itemId)
-        // console.log(user.id)
-        // console.log(itemsoff)
-    this.setState({ newData: rowoff });
-    console.log(this.state.newData)
+    //     console.log(this.state.newData)
+    //     const rowoff = this.state.newData.filter((user) => user.id !== itemId);
+    //     console.log(rowoff)
+    //     // console.log(itemId)
+    //     // console.log(user.id)
+    //     // console.log(itemsoff)
+    // this.setState({ newData: rowoff });
     // console.log(this.state.newData)
+    // // console.log(this.state.newData)
+    }
+
+    addSave = (Id) => {
+        alert('Saved');
+        const newUser = {
+            id: id,
+            name: document.getElementById('name').value,
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            address: document.getElementById('stAddress').value
+        }
+        console.log(newUser)
+            // let newArray = []
+                if (!newUser.id) {
+                    // newArray = this.state.users.slice()
+                    newUser.id = state.users[state.users.length - 1].id + 1
+                    newArray.push(newUser)
+                } else {
+                    newArray = state.users.slice()
+                    for (let i = 0; i < newArray.length; i++) {
+                        if (newArray[i].id === newUser.id) {
+                            newArray.splice(i, 1, newUser)
+                            break
+                        }
+                    }
+                }
+                // alert('User successfully added')
+                // return {
+                // users: newArray
+                // }
     }
     
 
@@ -80,6 +110,7 @@ class Table extends React.Component {
         // console.log(loading)
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then((response) => {
+            // NE MOZE VAKA BIDEJKI setState E ASYNCHRONOUS // 
             this.setState({ newData: response.data })  
                 console.log(this.state.newData) 
                 // console.log(this.state.newData[0].name)
@@ -134,7 +165,7 @@ class Table extends React.Component {
                     </tr>
                      {/* AddNewUser btn-end  */}
                     {/* AddNewUser Form-start  */}
-                    {this.state.show && <AddNewUser  opcl={this.OpCl} />}
+                    {this.state.show && <AddNewUser  opcl={this.OpCl} save={this.addSave}/>}
                     {/* AddNewUser Form-end  */}
                     <tr id='hds'>
                         <th>Id</th>

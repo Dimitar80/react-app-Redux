@@ -434,6 +434,10 @@ li {
    align-items: center;
    justify-content: center;
 }
+#hds{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
 
 
 

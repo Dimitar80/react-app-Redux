@@ -70,35 +70,41 @@ class TableOne extends React.Component {
     // console.log(this.state.newData)
     }
 
-    // addSave = () => {
-    //     alert('Saved');
-    //     const newUser = {
-    //         id: id,
-    //         name: document.getElementById('name').value,
-    //         username: document.getElementById('username').value,
-    //         email: document.getElementById('email').value,
-    //         address: document.getElementById('stAddress').value
-    //     }
-    //     console.log(newUser)
-    //         let newArray = []
-    //             if (!newUser.id) {
-    //                 newArray = this.state.users.slice()
-    //                 newUser.id = state.users[state.users.length - 1].id + 1
-    //                 newArray.push(newUser)
-    //             } else {
-    //                 newArray = state.users.slice()
-    //                 for (let i = 0; i < newArray.length; i++) {
-    //                     if (newArray[i].id === newUser.id) {
-    //                         newArray.splice(i, 1, newUser)
-    //                         break
-    //                     }
-    //                 }
-    //             }
-    //             // alert('User successfully added')
-    //             // return {
-    //             // users: newArray
-    //             // }
-    // }
+    addSave = (id) => {
+        alert('Saved');
+        const newUser = {
+            id: id,
+            name: document.getElementById('name').value,
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            address: document.getElementById('stAddress').value
+        }
+        console.log(newUser)
+        // console.log(newUser.name)
+        console.log(this.state.udata)
+            let newArray = []
+                if (!newUser.id  /*newUser.id === null*/) {
+                    // newArray = this.state.udata.slice()
+                    newUser.id = this.state.udata[this.state.udata.length - 1].id + 1
+                    console.log(newUser.id)
+                    newArray.push(newUser)
+                   
+                    console.log(newArray)
+                    
+                }  /*console.log(newArray)*/ /*else 
+                    newArray = this.state.udata.slice()
+                    for (let i = 0; i < newArray.length; i++) {
+                        if (newArray[i].id === newUser.id) {
+                            newArray.splice(i, 1, newUser)
+                            break
+                        }
+                    }
+                }*/ else {
+                    console.log('error')
+                }
+                alert('User successfully added')
+                this.setState({udata: newArray})   
+    }
     
 
    
@@ -127,6 +133,7 @@ class TableOne extends React.Component {
                     this.setState({ udata: users })
                     // console.log(users)
                     console.log(this.state.udata)
+                    // console.log(this.state.udata.length - 1)
                     // console.log(this.state.udata.name)
                 })
         .catch((error) => {

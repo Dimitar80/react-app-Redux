@@ -60,7 +60,7 @@ const Routes = () => {
                         />
                     }
                 /> */}
-                <Route exact path='/user' component={Table} />
+                <Route exact path='/user' component={TableOne} />
                 <Route exact path='/weather' component={WForecastA} />
                 {/* <Route
                     exact
