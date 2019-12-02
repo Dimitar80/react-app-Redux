@@ -27,7 +27,7 @@ class Table extends React.Component {
 //     // Array.prototype.filter returns new arrayc
 //     // so we aren't mutating state here
 //     const arrayCopy = this.state.newData.filter((row) => row.id !== rowId);
-//     this.setState({data: arrayCopy});
+//     this.setState({newData: arrayCopy});
 //   };
      // delrow = () => {
     //     alert('Button Clicked');
