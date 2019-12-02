@@ -43,18 +43,62 @@ class TableOne extends React.Component {
     // console.log(rowoff)
     // // console.log(this.state.newData)
     // }
-    delrow = (itemId) => {
+
+    // DELETE Function//
+    // delrow = (itemid) => {
+    //     alert('Button Clicked');
+    //     const rowoff = this.state.udata.filter((user) => user.id !== itemid);
+    //     // console.log(user.id)
+    //     // console.log(this.state.udata.user.name)
+    //     // console.log(itemsoff)
+    // this.setState({ udata: rowoff });
+    // // console.log(rowoff)
+    // console.log(this.state.udata)
+    // // console.log(this.state.newData)
+    // }
+
+
+    delrow = (itemid) => {
         alert('Button Clicked');
-        console.log(c)
-        const rowoff = this.state.udata.filter((user) => user.id !== itemId);
-        console.log(this.state.udata)
-        // console.log(itemId)
+        const rowoff = this.state.c.filter((user) => user.id !== itemid);
         // console.log(user.id)
+        // console.log(this.state.udata.user.name)
         // console.log(itemsoff)
     this.setState({ udata: rowoff });
-    console.log(rowoff)
+    // console.log(rowoff)
+    console.log(this.state.udata)
     // console.log(this.state.newData)
     }
+
+    // addSave = () => {
+    //     alert('Saved');
+    //     const newUser = {
+    //         id: id,
+    //         name: document.getElementById('name').value,
+    //         username: document.getElementById('username').value,
+    //         email: document.getElementById('email').value,
+    //         address: document.getElementById('stAddress').value
+    //     }
+    //     console.log(newUser)
+    //         let newArray = []
+    //             if (!newUser.id) {
+    //                 newArray = this.state.users.slice()
+    //                 newUser.id = state.users[state.users.length - 1].id + 1
+    //                 newArray.push(newUser)
+    //             } else {
+    //                 newArray = state.users.slice()
+    //                 for (let i = 0; i < newArray.length; i++) {
+    //                     if (newArray[i].id === newUser.id) {
+    //                         newArray.splice(i, 1, newUser)
+    //                         break
+    //                     }
+    //                 }
+    //             }
+    //             // alert('User successfully added')
+    //             // return {
+    //             // users: newArray
+    //             // }
+    // }
     
 
    
@@ -65,7 +109,9 @@ class TableOne extends React.Component {
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then((response) => {
             var c = response.data
-                   const users = /*response.data*/c.map((user) => {
+            // let users = []
+            console.log(c)
+                   let users = c.map((user) => {
                     return (<User      
                           key={user.id} 
                           id={user.id}
@@ -79,10 +125,12 @@ class TableOne extends React.Component {
                         )
                     })
                     this.setState({ udata: users })
+                    // console.log(users)
                     console.log(this.state.udata)
+                    // console.log(this.state.udata.name)
                 })
         .catch((error) => {
-            console.log(error + 'error')
+            console.log(error + ' Greska')
             this.setState({ error: <Error />, loading: false })
         })
     }
@@ -113,7 +161,7 @@ class TableOne extends React.Component {
                     </tr>
                      {/* AddNewUser btn-end  */}
                     {/* AddNewUser Form-start  */}
-                    {this.state.show && <AddNewUser  opcl={this.OpCl} />}
+                    {this.state.show && <AddNewUser  opcl={this.OpCl} save={this.addSave} />}
                     {/* AddNewUser Form-end  */}
                     <tr id='hds'>
                         <th>Id</th>

@@ -60,29 +60,16 @@ class Table extends React.Component {
     // // console.log(this.state.newData)
     // }
     delrow = (itemId) => {
-        console.log(event.target.id)
         alert('Button Clicked');
-        // console.log(this.state.newData)
-        const rowoff = data.filter((user) => user.id !== itemId);
+        console.log(this.state.newData)
+        const rowoff = this.state.newData.filter((user) => user.id !== itemId);
+        console.log(rowoff)
         // console.log(itemId)
         // console.log(user.id)
         // console.log(itemsoff)
-    this.setState({ udata: rowoff });
-    console.log(rowoff)
+    this.setState({ newData: rowoff });
+    console.log(this.state.newData)
     // console.log(this.state.newData)
-    }
-
-    showOrHide = (event) => {
-        console.log(event.target.id)
-        /* menuvanje na state so setState() metoda
-        otkako state-ot kje se smeni,
-        komponentata si go vika svojot render metod odnovo
-        (ASINHRONA E, PAZETE! noviot state moze da go procitate
-            samo vo render i so callback) */
-        this.setState({ show: !this.state.show });
-        console.log("Button clicked...")
-        let buttonText = this.state.buttonText === "Expand" ? "Cancel" : "Expand"
-        this.setState({epxText: buttonText});
     }
     
 
@@ -93,11 +80,12 @@ class Table extends React.Component {
         // console.log(loading)
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then((response) => {
-            // this.setState({ newData: response.data })  
-            //     console.log(this.state.newData) 
-            // this.state.newData 
-               let data = response.data         
-                const users = data.map((user) => {
+            this.setState({ newData: response.data })  
+                console.log(this.state.newData) 
+                // console.log(this.state.newData[0].name)
+     
+            //    let data = response.data         
+                const users = this.state.newData.map((user) => {
                     return (<User      
                           key={user.id} 
                           id={user.id}
@@ -112,9 +100,10 @@ class Table extends React.Component {
                     })
                     this.setState({ udata: users })
                     console.log(this.state.udata)
+                    // console.log(this.state.udata.user.name)
                 })
         .catch((error) => {
-            console.log(error + 'error')
+            console.log(error + ' Greska')
             this.setState({ error: <Error />, loading: false })
         })
     }

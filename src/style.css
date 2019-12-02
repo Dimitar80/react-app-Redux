@@ -102,6 +102,13 @@ html, body {
     align-items: stretch;
 }
 
+#edsav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .text-field-label {
     font-size: 18px;
     color: #fff; 
@@ -122,6 +129,21 @@ html, body {
 }
 
 .primary-save-btn  {
+    background-color: green;
+    color: whitesmoke;
+    font-size: 16px;
+    font-weight: 700;
+    width: 100%;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius:  5px;
+    cursor: pointer;
+    height: 30px;
+}
+
+.primary-edit-btn  {
     background-color: green;
     color: whitesmoke;
     font-size: 16px;

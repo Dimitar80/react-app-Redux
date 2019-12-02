@@ -20,22 +20,28 @@ class AddNewUser extends React.Component {
                         <form >
                         <div className='addTitle'>Add new user</div>
                             <p>
-                                <input id ='name' type='text' className="text-field-input" placeholder='name' />
+                                <input id='name' type='text' className="text-field-input" placeholder='name' />
                             </p>
                             <p>
-                                <input id ='usename' type='text' className="text-field-input" placeholder='username' />
+                                <input id='username' type='text' className="text-field-input" placeholder='username' />
                             </p>
                             <p>
-                                <input type='email' className="text-field-input" placeholder='email' />
+                                <input id='email' type='email' className="text-field-input" placeholder='email' />
                             </p>
                             <p>
-                                <input type='streetAddress' className="text-field-input" placeholder='streetAddress'/>
+                                <input id='stAddress' type='streetAddress' className="text-field-input" placeholder='streetAddress'/>
                             </p>
             
                         </form>
                         <div id='btns'>
-                        <button id='save' className='saveBtn' onClick={() => this.saveUser()}>Save</button>
-                        <button id='close' className='closeBtn' onClick={this.props.opcl}> Close </button>
+                        <button id='save' className='saveBtn' /*onClick={() => this.saveUser()}*/
+                        onClick={this.props.save}
+                        >
+                            Save
+                            </button>
+                        <button id='close' className='closeBtn' onClick={this.props.opcl}>
+                             Close 
+                             </button>
                         </div>
                      </div>
                 </div>
