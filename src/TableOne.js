@@ -57,7 +57,7 @@ class TableOne extends React.Component {
     // // console.log(this.state.newData)
     // }
 
-
+    // DEL and ADD user //
     delrow = (itemid) => {
         alert('Button Clicked');
         const rowoff = this.state.c.filter((user) => user.id !== itemid);
