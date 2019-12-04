@@ -161,10 +161,12 @@ class WForecastA extends React.Component {
 
         return (
             <React.Fragment>
-                <div>
+              <div id='wfor'>
+                <div className='compHead'>
+                <h1> Weather Forecast </h1>  
                </div>
-               <div>
-                   <h1 id='wftitle'> Weather Forecast </h1> 
+               <div >
+                   {/* <h1 id='wftitle'> Weather Forecast </h1>  */}
                    <div id='srcleft'>
                        {/* Automatic addin and finishing when typping */}
                         <input 
@@ -285,6 +287,7 @@ class WForecastA extends React.Component {
                          humidityTwo={this.state.wdataex.list[2].main.humidity}
                          />  
                     }
+                  </div>
                 </React.Fragment>
         )
     }

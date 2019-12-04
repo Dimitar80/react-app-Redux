@@ -26,7 +26,7 @@ class Home extends React.Component {
 
         return  (
             <React.Fragment>
-                <div className='backgCol'>
+                <div className='compHead'>
                     <h1>Home</h1>
                 </div>
                 <button id='toggleMe' onClick={this.showOrHide}>Toggle me!</button>

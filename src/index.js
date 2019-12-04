@@ -28,7 +28,7 @@ import TableOne from './TableOne'
 
 const About = () => {
     return (
-    <div className='backgCol'>
+    <div className='compHead'>
         <h1>Welcome to my about page!</h1>
         </div>
         )
@@ -36,7 +36,7 @@ const About = () => {
 
 const Contact = () => {
     return (
-    <div className='backgCol'>
+    <div className='compHead'>
     <h1>Welcome to my contact page!</h1>
         </div>
         )

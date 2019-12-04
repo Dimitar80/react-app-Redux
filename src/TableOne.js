@@ -151,7 +151,8 @@ class TableOne extends React.Component {
    render () {
         return (
             <React.Fragment>
-                <div className='backgCol'>
+             <div id='userAll'>
+                <div className='compHead'>
                     <h1>Users</h1>
                 </div>
 
@@ -190,7 +191,7 @@ class TableOne extends React.Component {
                    style={{color: "red", fontSize: "20px", textAlign: 'center'}}>LOADING...</h1>}
                     </tbody>
                 </table>
-                
+              </div>
             </React.Fragment>
         )
     }

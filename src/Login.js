@@ -41,7 +41,7 @@ class Login extends React.Component {
 
     render () {
         return <React.Fragment>
-            <div className='backgCol'>
+            <div className='compHead'>
                     <h1>Login page - React/Redux test</h1>
                 </div>
             <Alert />
