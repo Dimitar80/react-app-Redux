@@ -212,7 +212,7 @@ class WForecastA extends React.Component {
                            }
                     </div>
                </div>
-               <div id='wapp-container'>
+               <div /*id='wapp-container'*/>
                 <table className="table">
                     <thead className="table-head">
                         <tr>

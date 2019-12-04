@@ -1,4 +1,4 @@
-html, body {
+/* html, body {
     width: 100%;
     height: 100%;
     margin: 0px;
@@ -8,16 +8,13 @@ html, body {
     color: grey;
 }
 
-#newproduct{
-   display: flex;
-   /* justify-content: center; */
-}
+
 
 .addNu-container {
     position: fixed;
     top: 120px;
     bottom: 20px;
-    /* left: 35%; */
+  
     right: 34%; 
     width: 25%;
     height: 400px;
@@ -26,11 +23,11 @@ html, body {
     border-radius:  15px;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
+ 
     justify-content: center;
-    /* align-content: center; */
+  
     align-items: center;
-    /* justify-items: center; */
+ 
     align-items: stretch;
 }
 
@@ -41,14 +38,7 @@ html, body {
     font-weight: 600;
 }
 
-/* Moze */
-/* align-content: center; */
-/* #btns{
-    display: flex;
-    flex-direction: column;
-    
-    align-items: center;
-} */
+
 
 .saveBtn {
     background-color: green;
@@ -60,10 +50,10 @@ html, body {
     height: 30px;
     width: 100%;
     margin-top: 25px;
-    /* margin-bottom: 5px; */
+   
     border-radius:  5px;
     cursor: pointer;
-    /* float: ; */
+  
 }
 .closeBtn {
     background-color :grey;
@@ -75,10 +65,10 @@ html, body {
     height: 30px;
     width: 100%;
     margin-top: 25px;
-    /* margin-bottom: 5px; */
+   
     border-radius:  5px;
     cursor: pointer;
-    /* float: ; */
+   
 }
 
 .box-container {
@@ -91,14 +81,11 @@ html, body {
     background-color: rgb(11, 45, 78);
     padding: 25px 35px;
     border: 1px solid grey;
-    /* border-radius:  5px; */
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
+   
     justify-content: center;
-    /* align-content: center; */
-    /* align-items: center; */
-    /* justify-items: center; */
+    
     align-items: stretch;
 }
 
@@ -122,8 +109,8 @@ html, body {
     width: 100%;
     height: 30px;
     background: rgb(210, 238, 247);
-    /* border: 2px solid; */
-    /* border-color:  #C6C6C6; */
+    border: 2px solid;
+    border-color:  #C6C6C6;
     border-radius:  5px;
     margin-top: 7px;
 }
@@ -185,6 +172,6 @@ html, body {
 
 
 
-/* #create-btn {
-    
+#create-btn {
+    color:red;
 } */
