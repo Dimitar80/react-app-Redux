@@ -121,7 +121,8 @@ class WForecastA extends React.Component {
         // let newCity = this.capFirstLetter(this.state.city)
         let newCity = this.state.city
         document.getElementById('new-city').value = null
-        let wrd = this.state.dir === null /*&& this.state.error === null*/ ? 'PLEASE ENTER CITY IN THE ABOVE INPUT FIELD' : null
+        let wrd = this.state.dir === null /*&& this.state.error === null*/ 
+        ? 'PLEASE ENTER CITY IN THE ABOVE INPUT FIELD' : null
         if(newCity){
             // document.getElementById('new-city').value = null
         console.log(newCity)

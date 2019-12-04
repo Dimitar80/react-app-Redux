@@ -29,8 +29,8 @@ class User extends React.Component {
             samo vo render i so callback) */
         this.setState({ show: !this.state.show });
         console.log("Button clicked...")
-        let buttonText = this.state.buttonText === "Expand" ? "Cancel" : "Expand"
-        this.setState({epxText: buttonText});
+        let buttonText = this.state.expText === "Expand" ? "Close" : "Expand"
+        this.setState({expText: buttonText});
     }
 
     // delete = (props) => {
