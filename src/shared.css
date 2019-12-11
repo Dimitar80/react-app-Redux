@@ -11,11 +11,9 @@ html, body {
 
 #app {
     width: 100%;
-    /* height: 100; */
-    height: calc(100% - 80px);
-    /* display: flex;
-    align-content: center;
-    justify-content: center; */
+    /* height: 100%; */
+    height: calc(100% - 160px);
+    /* margin: 0px; */
 }
 
 #menu {
@@ -39,28 +37,45 @@ html, body {
     /* position: fixed; */
     background-color: rgb(162, 226, 43);
     width: 100%;
-   height: calc(100% - 80px);
+    height: calc(100% - 80px);
 }
 
 #userAll{
     background-color: rgb(162, 226, 43);
+    /* width: calc(100% - 150px); */
     width: 100%;
-   /* height: calc(100% - 80px); */
-   height: 100%;
+    margin: 0px;
+   /* height: calc(100% - 160px); */
+   /* height: 100%; */
+   top: 0;
 }
 
 
 .compHead{
-    background-color: rgb(228, 64, 173);
+    background-color: rgb(211, 102, 205);
     height: 100px;
     width: 100%;
     margin: 0px;
     display: flex;
-    /* align-content: center; */
     align-items: center;
     justify-content: center;
-    /* position: absolute; */
+    position: fixed;
+    /* top: 80; */
  }
+ /* align-content: center; */
+  /* position: absolute; */
+
+  .table{
+    /* display: flex; */
+    /* justify-content: center; */
+    /* table-layout: fixed; */
+    width: 100%;
+    height: 100px;
+    height: calc(100% - 100px);
+    border: 1px black solid;
+    border-collapse:separate;
+    border-spacing: 5px 5px;
+}
 
 h1 {
     display: flex;
@@ -105,19 +120,11 @@ li {
 
 } */
 
-.table{
-    /* display: flex; */
-    /* justify-content: center; */
-    table-layout: fixed;
-    width: 100%;
-    border: 1px black solid;
-    border-collapse:separate;
-    border-spacing: 5px 5px;
-}
 
-.table-ext{
-    /* display: flex; */
+
+/* display: flex; */
     /* justify-content: center; */
+.table-ext{
     table-layout: fixed;
     width: 100%;
     border: 1px black solid;

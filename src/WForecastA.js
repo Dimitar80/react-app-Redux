@@ -183,7 +183,7 @@ class WForecastA extends React.Component {
                         <button type='submit' id='src-btn' onClick={this.showNewCity}>
                             Get Weather
                         </button>
-                        {this.state.error }
+                        {this.state.error}
                         {/* {this.state.error ? <ErrorTess cl={this.CloseBtn} /> : this.state.dir } */}
                         {/* {this.state.error ? <ErrorTess cl={this.CloseBtn} /> : null } */}
                         {/* <h2>K {this.state.wdata ? this.setCity : ''} </h2> */}

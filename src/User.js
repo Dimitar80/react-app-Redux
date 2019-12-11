@@ -51,7 +51,6 @@ class User extends React.Component {
     render () {
         return (
             <React.Fragment>
-                {/* <div id='userAll'> */}
                     <tr>
                     <td>{this.props.id}</td>
                     <td>{this.props.name}</td>
@@ -99,7 +98,7 @@ class User extends React.Component {
                     <input id='cen' type='text' defaultValue={this.props.suite }/>
                     </div>} */}
                     {/* </div> */}
-                {/* </div> */}
+    
             </React.Fragment>
         )
     }

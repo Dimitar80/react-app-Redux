@@ -152,10 +152,10 @@ class TableOne extends React.Component {
         return (
             <React.Fragment>
              <div id='userAll'>
-                <div className='compHead'>
+                {/* <div className='compHead'>
                     <h1>Users</h1>
-                </div>
-
+                </div> */}
+                
                 <table className="table">
                 {/* {this.state.showModal} */}
                     <thead className="table-head">
@@ -181,7 +181,7 @@ class TableOne extends React.Component {
                         <th>Edit</th>
                     </tr>
                     </thead>
-
+                    {/* TBODY START */}
                     <tbody className="table-body">
                     {/* <this.props.component data={this.state.udata} /> */}
                     {this.state.udata}
@@ -190,6 +190,7 @@ class TableOne extends React.Component {
                    {this.state.loading && <h1 
                    style={{color: "red", fontSize: "20px", textAlign: 'center'}}>LOADING...</h1>}
                     </tbody>
+                    {/* TBODY END */}
                 </table>
               </div>
             </React.Fragment>
